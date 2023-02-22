@@ -60,6 +60,35 @@ $routes->group('productos', static function ($routes) {
     $routes->get('(:segment)', 'Website\Products::show/$1', ['as' => 'website.products.show']);
 });
 
+// Definición de rutas de las marcas.
+$routes->group('marcas-dulces', static function ($routes) {
+    $routes->get('', 'Website\Brands::index', ['as' => 'website.brands.index']);
+    $routes->get('(:segment)', 'Website\Brands::products/$1', ['as' => 'website.brands.products']);
+});
+
+// Definición de rutas de todas las categorías.
+$routes->get('venta-chocolates', 'Website\Categories::products', ['as' => 'website.categories.chocolotes']);
+$routes->get('venta-paletas', 'Website\Categories::products', ['as' => 'website.categories.paletas']);
+$routes->get('venta-caramelos', 'Website\Categories::products', ['as' => 'website.categories.caramelos']);
+$routes->get('venta-galletas', 'Website\Categories::products', ['as' => 'website.categories.galletas']);
+$routes->get('surtidos-dulces', 'Website\Categories::products', ['as' => 'website.categories.surtidos']);
+$routes->get('bombones-mayoreo', 'Website\Categories::products', ['as' => 'website.categories.bombones']);
+$routes->get('dulces-tipicos', 'Website\Categories::products', ['as' => 'website.categories.tipicos']);
+$routes->get('articulos-fiesta', 'Website\Categories::products', ['as' => 'website.categories.fiestas']);
+$routes->get('venta-gomitas', 'Website\Categories::products', ['as' => 'website.categories.gomitas']);
+$routes->get('venta-botanas', 'Website\Categories::products', ['as' => 'website.categories.botonas']);
+$routes->get('venta-dulces-enchilados', 'Website\Categories::products', ['as' => 'website.categories.enchilados']);
+$routes->get('venta-chicles', 'Website\Categories::products', ['as' => 'website.categories.chicles']);
+
+// Definición de rutas de todas las temporadas.
+$routes->get('dulces-dia-muertos', 'Website\Seasons::products', ['as' => 'website.seasons.muertos']);
+$routes->get('dulces-mexicanos', 'Website\Seasons::products', ['as' => 'website.seasons.patrias']);
+$routes->get('dulces-san-valentin', 'Website\Seasons::products', ['as' => 'website.seasons.valentin']);
+$routes->get('dulces-dia-nino', 'Website\Seasons::products', ['as' => 'website.seasons.nino']);
+$routes->get('dulces-navidad', 'Website\Seasons::products', ['as' => 'website.seasons.navidad']);
+$routes->get('dulces-cumpleanos', 'Website\Seasons::products', ['as' => 'website.seasons.cumpleanos']);
+$routes->get('mesas-dulces', 'Website\Seasons::products', ['as' => 'website.seasons.mesas']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
