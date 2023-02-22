@@ -76,7 +76,7 @@ Compila Tailwind CSS para el backend:
 * [Google reCAPTCHA - Verifying the user's response](https://developers.google.com/recaptcha/docs/verify)
 * [Tinify - API Reference](https://tinypng.com/developers/reference/php)
 * [Clippy - CSS clip-path maker](https://bennettfeely.com/clippy/)
-* [Tutoriales Hostinger - CodeIgniter Tutorial: The Complete Guide](https://www.hostinger.com/tutorials/codeigniter-tutorial)
+* [Hostinger Tutoriales - CodeIgniter Tutorial: The Complete Guide](https://www.hostinger.com/tutorials/codeigniter-tutorial)
 * [Trix - A rich text editor for everyday writing](https://trix-editor.org/)
 * [Trix with support multiple headings](https://github.com/Quimbee/trix)
 * [Google - Cómo escribir y enviar un archivo robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=es)
@@ -107,6 +107,7 @@ Compila Tailwind CSS para el backend:
 * [Format of HTML Geo-Tags](https://www.geo-tag.de/informator/en2.html)
 * [Git-ftp - Uploads to FTP servers the Git way](https://github.com/git-ftp/git-ftp)
 * [WhatsApp - Cómo usar la función de clic para chatear](https://faq.whatsapp.com/5913398998672934/?helpref=hc_fnav&locale=es_LA)
+* [Hostinger Tutoriales - How to Force HTTPS Using .htaccess (Updated 2023)](https://www.hostinger.com/tutorials/ssl/force-https-using-htaccess)
 
 ## Licencia
 

@@ -14,7 +14,7 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+$routes->set404Override(ENVIRONMENT === 'production' ? 'App\Controllers\Website\Pages::error404' : null);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -29,7 +29,36 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+// Ruta del home.
+$routes->get('/', 'Website\Pages::home', ['as' => 'website.pages.home']);
+
+// Ruta del sitemap.
+$routes->get('sitemap.xml', 'Website\Pages::sitemap', ['as' => 'website.pages.sitemap']);
+
+// Definición de rutas de otras páginas.
+$routes->get('donde-comprar-dulces-mayoreo', 'Website\Pages::offices', ['as' => 'website.pages.offices']);
+$routes->get('nosotros', 'Website\Pages::about', ['as' => 'website.pages.about']);
+$routes->get('preguntas-frecuentes', 'Website\Pages::faqs', ['as' => 'website.pages.faqs']);
+$routes->get('aviso-privacidad', 'Website\Pages::privacy', ['as' => 'website.pages.privacy']);
+
+// Definición de rutas del formulario de contacto.
+$routes->group('contacto', static function ($routes) {
+    $routes->get('', 'Website\Prospects::new', ['as' => 'website.prospects.new']);
+    $routes->get('gracias', 'Website\Prospects::create', ['as' => 'website.prospects.create']);
+});
+
+// Definición de rutas del blog.
+$routes->group('blog', static function ($routes) {
+    $routes->get('', 'Website\Posts::index', ['as' => 'website.posts.index']);
+    $routes->get('(:segment)', 'Website\Posts::show/$1', ['as' => 'website.posts.show']);
+});
+
+// Definición de rutas de productos generales.
+$routes->group('productos', static function ($routes) {
+    $routes->get('', 'Website\Products::index', ['as' => 'website.products.index']);
+    $routes->get('(:segment)', 'Website\Products::show/$1', ['as' => 'website.products.show']);
+});
 
 /*
  * --------------------------------------------------------------------
