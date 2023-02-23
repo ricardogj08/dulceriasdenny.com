@@ -33,6 +33,26 @@ Copia el archivo de configuración del proyecto `env` a `.env`:
 
 	cp env .env
 
+## Base de datos
+
+Crea la base de datos de la aplicación:
+
+	CREATE DATABASE IF NOT EXISTS dulceriasdennycom
+	    CHARACTER SET = 'utf8mb4'
+	    COLLATE = 'utf8mb4_spanish_ci';
+
+o desde `spark`:
+
+	php spark db:create dulceriasdennycom
+
+Construye todas tablas de la base de datos:
+
+	php spark migrate --all
+
+Inicializa las tablas de la base de datos:
+
+	php spark db:seed MainSeeder
+
 ## Ejecución
 
     php spark serve
@@ -64,7 +84,7 @@ Compila Tailwind CSS para el backend:
 * [CodeIgniter 4 Settings](https://github.com/codeigniter4/settings)
 * [CodeIgniter Coding Standard](https://github.com/CodeIgniter/coding-standard)
 * [Tailwind CSS documentation](https://tailwindcss.com/docs/installation)
-* [Bootstrap Icons](https://icons.getbootstrap.com/)
+* [Remix Icon](https://github.com/Remix-Design/remixicon)
 * [daisyUI - Tailwind CSS Components](https://daisyui.com/)
 * [Flowbite - Tailwind CSS component library](https://flowbite.com/)
 * [JavaScript Standard Style](https://standardjs.com/)

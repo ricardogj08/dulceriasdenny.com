@@ -89,6 +89,24 @@ $routes->get('dulces-navidad', 'Website\Seasons::products', ['as' => 'website.se
 $routes->get('dulces-cumpleanos', 'Website\Seasons::products', ['as' => 'website.seasons.cumpleanos']);
 $routes->get('mesas-dulces', 'Website\Seasons::products', ['as' => 'website.seasons.mesas']);
 
+// Definición de rutas del backend.
+$routes->group('backend', static function ($routes) {
+    // Definición de rutas de los módulos del backend.
+    $routes->group('modulos', static function ($routes) {
+        // Definición de rutas del módulo de prospectos.
+        $routes->group('prospectos', static function ($routes) {
+            $routes->get('', 'Backend\Modules\Prospects::index', ['as' => 'backend.modules.prospects.index']);
+            $routes->get('(:num)', 'Backend\Modules\Prospects::show', ['as' => 'backend.modules.prospects.show']);
+            $routes->get('editar/(:num)', 'Backend\Modules\Prospects::update', ['as' => 'backend.modules.prospects.update']);
+            $routes->post('editar/(:num)', 'Backend\Modules\Prospects::update', ['as' => 'backend.modules.prospects.update']);
+            $routes->post('eliminar/(:num)', 'Backend\Modules\Prospects::delete', ['as' => 'backend.modules.prospects.delete']);
+        });
+    });
+
+    // Ruta por defecto.
+    $routes->addRedirect('', 'backend.modules.prospects.index');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
