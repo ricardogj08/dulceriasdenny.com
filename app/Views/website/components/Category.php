@@ -1,4 +1,3 @@
-
 <article class="w-full">
   <a href="">
     <figure class="flex items-center justify-center max-w-[120px] mx-auto">
