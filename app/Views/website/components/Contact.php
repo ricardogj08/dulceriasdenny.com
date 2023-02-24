@@ -19,7 +19,7 @@
       <label for="message" class="visually__hidden">Mensaje:</label>
       <textarea name="" id="message" cols="30" rows="5" placeholder="Mensaje" class="w-full p-3 bg-white rounded-3xl" required aria-required="true"></textarea>
       <!-- <div class="g-recaptcha" data-sitekey="your_site_key"></div> -->
-      <div id="html_element"></div>
+      <!-- <div id="html_element"></div> -->
       <input type="submit" value="Enviar" class="w-2/5 mx-auto mt-4 py-2 px-3 bg-denny-pink-400 text-white rounded-3xl cursor-pointer">
     </form>
   </div>
