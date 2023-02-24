@@ -14,15 +14,21 @@ class Pages extends BaseController
         // Read the JSON files
         $jsonProducts = file_get_contents('temporalDB/products.json');
         $jsonCategories = file_get_contents('temporalDB/categories.json');
+        $jsonSeasons = file_get_contents('temporalDB/seasons.json');
+        $jsonBrands = file_get_contents('temporalDB/brands.json');
 
         // Decode the JSON files
         $products = json_decode($jsonProducts,true);
         $categories = json_decode($jsonCategories,true);
+        $seasons = json_decode($jsonSeasons,true);
+        $brands = json_decode($jsonBrands,true);
 
         $favorites = array_slice($products, 0 ,3);
         return view('website/pages/home', [
             'favorites' => $favorites,
-            'categories' => $categories
+            'categories' => $categories,
+            'seasons' => $seasons,
+            'brands' => $brands
         ]);
     }
 
