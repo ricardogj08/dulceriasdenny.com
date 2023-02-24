@@ -11,6 +11,8 @@ $lang = service('request')->getLocale();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="<?= base_url('favicon.svg') ?>" type="image/svg+xml">
+
     <!-- Declaración de la URL preferida de la página web -->
     <link rel="canonical" href="<?= current_url() ?>" hreflang="<?= esc($lang) ?>">
 

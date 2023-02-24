@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Chocolates",
+    "image": "/images/categories/cat-chocolates.webp"
+  },
+  {
+    "id": 2,
+    "name": "Paletas",
+    "image": "/images/categories/cat-paletas.webp"
+  },
+  {
+    "id": 3,
+    "name": "Caramelos",
+    "image": "/images/categories/cat-caramelos.webp"
+  },
+  {
+    "id": 4,
+    "name": "Gomitas",
+    "image": "/images/categories/cat-gomitas.webp"
+  },
+  {
+    "id": 5,
+    "name": "Articulos de fiesta",
+    "image": "/images/categories/cat-chocolates.webp"
+  },
+  {
+    "id": 6,
+    "name": "Dulces enchilados",
+    "image": "/images/categories/cat-paletas.webp"
+  },
+  {
+    "id": 7,
+    "name": "Botanas",
+    "image": "/images/categories/cat-caramelos.webp"
+  },
+  {
+    "id": 8,
+    "name": "Chicles",
+    "image": "/images/categories/cat-gomitas.webp"
+  },
+  {
+    "id": 9,
+    "name": "Bombones",
+    "image": "/images/categories/cat-chocolates.webp"
+  },
+  {
+    "id": 10,
+    "name": "Dulces tipicos",
+    "image": "/images/categories/cat-paletas.webp"
+  },
+  {
+    "id": 11,
+    "name": "Surtidos",
+    "image": "/images/categories/cat-caramelos.webp"
+  }
+]
