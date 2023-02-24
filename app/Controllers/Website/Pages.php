@@ -12,18 +12,27 @@ class Pages extends BaseController
     public function home()
     {
         // Read the JSON files
-        $jsonProducts = file_get_contents('temporalDB/products.json');
+        $jsonProducts   = file_get_contents('temporalDB/products.json');
         $jsonCategories = file_get_contents('temporalDB/categories.json');
 
         // Decode the JSON files
-        $products = json_decode($jsonProducts,true);
-        $categories = json_decode($jsonCategories,true);
+        $products   = json_decode($jsonProducts, true);
+        $categories = json_decode($jsonCategories, true);
 
-        $favorites = array_slice($products, 0 ,3);
+        $favorites = array_slice($products, 0, 3);
+
         return view('website/pages/home', [
-            'favorites' => $favorites,
-            'categories' => $categories
+            'favorites'  => $favorites,
+            'categories' => $categories,
         ]);
+    }
+
+    /**
+     * Renderiza la página de promociones
+     */
+    public function promotions()
+    {
+        return view('website/pages/promotions');
     }
 
     /**

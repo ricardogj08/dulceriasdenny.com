@@ -37,6 +37,7 @@ $routes->get('/', 'Website\Pages::home', ['as' => 'website.pages.home']);
 $routes->get('sitemap.xml', 'Website\Pages::sitemap', ['as' => 'website.pages.sitemap']);
 
 // Definición de rutas de otras páginas.
+$routes->get('promociones', 'Website\Pages::promotions', ['as' => 'website.pages.promotions']);
 $routes->get('donde-comprar-dulces-mayoreo', 'Website\Pages::offices', ['as' => 'website.pages.offices']);
 $routes->get('nosotros', 'Website\Pages::about', ['as' => 'website.pages.about']);
 $routes->get('preguntas-frecuentes', 'Website\Pages::faqs', ['as' => 'website.pages.faqs']);
@@ -44,7 +45,6 @@ $routes->get('aviso-privacidad', 'Website\Pages::privacy', ['as' => 'website.pag
 
 // Definición de rutas del formulario de contacto.
 $routes->group('contacto', static function ($routes) {
-    $routes->get('', 'Website\Prospects::new', ['as' => 'website.prospects.new']);
     $routes->get('gracias', 'Website\Prospects::create', ['as' => 'website.prospects.create']);
 });
 
@@ -67,7 +67,7 @@ $routes->group('marcas-dulces', static function ($routes) {
 });
 
 // Definición de rutas de todas las categorías.
-$routes->get('venta-chocolates', 'Website\Categories::products', ['as' => 'website.categories.chocolotes']);
+$routes->get('venta-chocolates', 'Website\Categories::products', ['as' => 'website.categories.chocolates']);
 $routes->get('venta-paletas', 'Website\Categories::products', ['as' => 'website.categories.paletas']);
 $routes->get('venta-caramelos', 'Website\Categories::products', ['as' => 'website.categories.caramelos']);
 $routes->get('venta-galletas', 'Website\Categories::products', ['as' => 'website.categories.galletas']);
@@ -76,7 +76,7 @@ $routes->get('bombones-mayoreo', 'Website\Categories::products', ['as' => 'websi
 $routes->get('dulces-tipicos', 'Website\Categories::products', ['as' => 'website.categories.tipicos']);
 $routes->get('articulos-fiesta', 'Website\Categories::products', ['as' => 'website.categories.fiestas']);
 $routes->get('venta-gomitas', 'Website\Categories::products', ['as' => 'website.categories.gomitas']);
-$routes->get('venta-botanas', 'Website\Categories::products', ['as' => 'website.categories.botonas']);
+$routes->get('venta-botanas', 'Website\Categories::products', ['as' => 'website.categories.botanas']);
 $routes->get('venta-dulces-enchilados', 'Website\Categories::products', ['as' => 'website.categories.enchilados']);
 $routes->get('venta-chicles', 'Website\Categories::products', ['as' => 'website.categories.chicles']);
 
@@ -88,6 +88,7 @@ $routes->get('dulces-dia-nino', 'Website\Seasons::products', ['as' => 'website.s
 $routes->get('dulces-navidad', 'Website\Seasons::products', ['as' => 'website.seasons.navidad']);
 $routes->get('dulces-cumpleanos', 'Website\Seasons::products', ['as' => 'website.seasons.cumpleanos']);
 $routes->get('mesas-dulces', 'Website\Seasons::products', ['as' => 'website.seasons.mesas']);
+$routes->get('dulces-dia-madre', 'Website\Seasons::products', ['as' => 'website.seasons.madres']);
 
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {
