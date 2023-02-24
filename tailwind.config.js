@@ -5,7 +5,7 @@
 module.exports = {
   content: [
     './app/Views/website/**/*.php',
-    './public/js/website/**/*.js'
+    './public/js/**/*.js'
   ],
   theme: {
     extend: {
@@ -45,6 +45,9 @@ module.exports = {
       },
       backgroundImage: {
         'blog-background': "url('/images/blog/blogBackground.webp')"
+      },
+      zIndex: {
+        '5': '5',
       }
     }
   },

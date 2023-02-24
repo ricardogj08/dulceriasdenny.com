@@ -28,6 +28,27 @@
   }
 }
 
+.nav__submenu-toggle {
+  transform: scale(1);
+  height: auto;
+}
+
+.nav__submenu-toggle h3 {
+  margin: 0.75rem 0;
+}
+
+.overlay__toggle {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 5;
+}
+
+.outline__text {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px;
+}
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
