@@ -1,9 +1,14 @@
 <?= $this->extend('backend/templates/dashboard') ?>
 
 <?= $this->section('head') ?>
-    <title>Módulos | Prospectos</title>
+    <title>
+        Módulos | Prospectos
+    </title>
 
-    <meta name="description" content="Búsqueda y consulta de todos los prospectos registrados.">
+    <meta
+        name="description"
+        content="Búsqueda y consulta de todos los prospectos registrados."
+    >
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -138,7 +143,7 @@
                         <!-- Fin del campo de filtrado por rating -->
 
                         <!-- Campo de filtrado de fecha desde -->
-                        <div class="form-control">
+                        <div class="form-control w-full">
                             <label for="dateFrom" class="label">
                                 <span class="label-text">
                                     Desde:
@@ -155,7 +160,7 @@
                         <!-- Fin del campo de filtrado de fecha desde -->
 
                         <!-- Campo de filtrado de fecha hasta -->
-                        <div class="form-control">
+                        <div class="form-control w-full">
                             <label for="dateTo" class="label">
                                 <span class="label-text">
                                     Hasta:

@@ -1,9 +1,14 @@
 <?= $this->extend('backend/templates/dashboard') ?>
 
 <?= $this->section('head') ?>
-    <title>Prospectos | </title>
+    <title>
+        Prospectos |
+    </title>
 
-    <meta name="description" content="Información y datos del prospecto.">
+    <meta
+        name="description"
+        content="Información y datos del prospecto."
+    >
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -53,21 +58,26 @@
             <tr>
                 <th>Rating:</th>
                 <td>
-                    <div class="rating rating-half">
-                        <?php foreach (range(0, 10) as $rating): ?>
-                        <input
-                            type="radio"
-                            name="rating"
-                            class="<?= $rating
-                                ? ($rating % 2
-                                    ? 'mask mask-star-2 bg-orange-400 mask-half-1'
-                                    : 'mask mask-star-2 bg-orange-400 mask-half-2 mr-2')
-                                : 'rating-hidden' ?>"
-                            value=""
-                            aria-label="Rating de <?= esc($rating) ?>"
-                            disabled
-                        >
-                        <?php endforeach ?>
+                    <div class="flex items-center gap-x-2">
+                        <div class="font-bold">
+                            <?= esc(number_format(0, 1)) ?>
+                        </div>
+                        <div class="rating rating-half">
+                            <?php foreach (range(0, 10) as $rating): ?>
+                                <input
+                                    type="radio"
+                                    name="rating"
+                                    class="<?= $rating
+                                        ? ($rating % 2
+                                            ? 'mask mask-star-2 bg-orange-400 mask-half-1'
+                                            : 'mask mask-star-2 bg-orange-400 mask-half-2 mr-2')
+                                        : 'rating-hidden' ?>"
+                                    value=""
+                                    aria-label="Rating de <?= esc($rating) ?>"
+                                    disabled
+                                >
+                            <?php endforeach ?>
+                        </div>
                     </div>
                 </td>
             </tr>
