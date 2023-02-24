@@ -11,7 +11,19 @@ class Pages extends BaseController
      */
     public function home()
     {
-        return view('website/pages/home');
+        // Read the JSON files
+        $jsonProducts = file_get_contents('temporalDB/products.json');
+        $jsonCategories = file_get_contents('temporalDB/categories.json');
+
+        // Decode the JSON files
+        $products = json_decode($jsonProducts,true);
+        $categories = json_decode($jsonCategories,true);
+
+        $favorites = array_slice($products, 0 ,3);
+        return view('website/pages/home', [
+            'favorites' => $favorites,
+            'categories' => $categories
+        ]);
     }
 
     /**
