@@ -39,7 +39,13 @@
                             value=""
                             class="input input-bordered w-full"
                         >
-                        <button type="submit" class="btn btn-primary btn-square">
+
+                        <!-- Botón de submit -->
+                        <button
+                            type="submit"
+                            aria-label="Botón que realiza una búsqueda"
+                            class="btn btn-primary btn-square"
+                        >
                             <i class="ri-search-2-line text-xl"></i>
                         </button>
                     </div>
@@ -47,7 +53,12 @@
                 <!-- Fin del campo de búsqueda -->
 
                 <!-- Botón que muestra el formulario de filtros -->
-                <button type="button" data-collapse-toggle="filters" class="btn btn-secondary">
+                <button
+                    type="button"
+                    data-collapse-toggle="filters"
+                    aria-label="Botón que muestra los filtros de búsqueda y consulta"
+                    class="btn btn-secondary"
+                >
                     <i class="ri-filter-3-fill text-xl"></i>
                 </button>
             </div>
@@ -184,7 +195,7 @@
                     <th>Fecha</th>
                     <th>Nombre</th>
                     <th>Teléfono</th>
-                    <th>Correo</th>
+                    <th>Email</th>
                     <th>Interés en</th>
                     <th>Acciones</th>
                 </tr>
@@ -209,6 +220,7 @@
 
                             <!-- Botón para editar los datos de un prospecto -->
                             <a
+                                href="<?= url_to('backend.modules.prospects.update', 1) ?>"
                                 class="btn btn-square btn-info btn-outline btn-sm"
                             >
                                 <i class="ri-pencil-line text-xl"></i>
@@ -218,14 +230,14 @@
                             <!-- Formulario para eliminar un prospecto -->
                             <?= form_open(url_to('backend.modules.prospects.delete', 1)) ?>
                                 <label
-                                    for=""
+                                    for="modal-submit"
                                     class="btn btn-square btn-error btn-outline btn-sm"
                                 >
                                     <i class="ri-delete-bin-5-line text-xl"></i>
                                 </label>
 
                                 <?= $this->setData([
-                                    'id'      => '',
+                                    'id'      => 'modal-submit',
                                     'message' => '¿Deseas eliminar este prospecto?',
                                 ], 'html')->include('backend/components/modal-submit') ?>
                             <?= form_close() ?>
