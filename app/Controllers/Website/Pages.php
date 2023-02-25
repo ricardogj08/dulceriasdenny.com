@@ -18,12 +18,12 @@ class Pages extends BaseController
         $jsonBrands = file_get_contents('temporalDB/brands.json');
 
         // Decode the JSON files
-        $products = json_decode($jsonProducts,true);
-        $categories = json_decode($jsonCategories,true);
-        $seasons = json_decode($jsonSeasons,true);
-        $brands = json_decode($jsonBrands,true);
+        $products = json_decode($jsonProducts, true);
+        $categories = json_decode($jsonCategories, true);
+        $seasons = json_decode($jsonSeasons, true);
+        $brands = json_decode($jsonBrands, true);
 
-        $favorites = array_slice($products, 0 ,3);
+        $favorites = array_slice($products, 0, 3);
         return view('website/pages/home', [
             'favorites' => $favorites,
             'categories' => $categories,
@@ -37,7 +37,22 @@ class Pages extends BaseController
      */
     public function offices()
     {
-        return view('website/pages/offices');
+        // Read the JSON files
+        $jsonOffices = file_get_contents('temporalDB/offices.json');
+
+        // Decode the JSON files
+        $offices = json_decode($jsonOffices, true);
+        // Get cities
+        $cities = array_map(function ($city) {
+            return $city['name'];
+        }, $offices);
+
+        $initialMapUrl = $offices[0]['offices'][0]['mapCoords'];
+        return view('website/pages/offices', [
+            'offices' => $offices,
+            'cities' => $cities,
+            'initialMapUrl' => $initialMapUrl
+        ]);
     }
 
     /**
@@ -45,7 +60,14 @@ class Pages extends BaseController
      */
     public function about()
     {
-        return view('website/pages/about');
+        // Read the JSON files
+        $jsonCategories = file_get_contents('temporalDB/categories.json');
+
+        // Decode the JSON files
+        $categories = json_decode($jsonCategories, true);
+        return view('website/pages/about', [
+            'categories' => $categories
+        ]);
     }
 
     /**
