@@ -34,5 +34,17 @@
     "name": "Mesa de Dulces",
     "description": "Encuentra una gran variedad de dulces para decorar tu candy bar",
     "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 7,
+    "name": "Cumpleños",
+    "description": "Endulza cualquier cumpleaños con la variedad más deliciosa de dulces",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 8,
+    "name": "Dia de las madres",
+    "description": "Festeja a mamá con los mejores dulces y chocolates que tenemos para ella",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
   }
 ]
