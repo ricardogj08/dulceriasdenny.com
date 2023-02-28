@@ -1,4 +1,4 @@
-<a href="#" class="group inline-grid">
+<a href="" class="group inline-grid">
     <figure class="inline-block max-w-max">
         <img src="<?= esc($brand['imgSrc']) ?>" alt="Marca - <?= esc($brand['name']) ?>" class="w-full object-cover">
         <?php if ($isNameVisible == true) : ?>
