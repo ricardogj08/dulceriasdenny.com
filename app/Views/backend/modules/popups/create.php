@@ -124,6 +124,15 @@
                 </label>
             </div>
             <!-- Fin del campo de activación -->
+
+            <!-- Botones de confirmación -->
+            <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-2">
+                <input type="submit" value="Guardar" class="btn btn-primary">
+
+                <label for="modal-confirm" class="btn btn-secondary">
+                    Cancelar
+                </label>
+            </div>
         </div>
     <?= form_close() ?>
     <!-- Fin del formulario de registro del Pop Up -->
