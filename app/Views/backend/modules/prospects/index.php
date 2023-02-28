@@ -125,7 +125,7 @@
                                     Filtrar por interés:
                                 </span>
                             </label>
-                            <?= form_dropdown('sortOrder', [], '', [
+                            <?= form_dropdown('', [], '', [
                                 'id'    => '',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>

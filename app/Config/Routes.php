@@ -108,7 +108,13 @@ $routes->group('backend', static function ($routes) {
 
     // Definición de rutas de administración de usuarios al backend.
     $routes->group('usuarios', static function ($routes) {
+        $routes->get('nuevo', 'Backend\Users::create', ['as' => 'backend.users.create']);
+        $routes->post('nuevo', 'Backend\Users::create', ['as' => 'backend.users.create']);
         $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
+        $routes->get('modificar/(:num)', 'Backend\Users::update/$1', ['as' => 'backend.users.update']);
+        $routes->post('modificar/(:num)', 'Backend\Users::update/$1', ['as' => 'backend.users.update']);
+        $routes->post('alternar-cuenta/(:num)', 'Backend\Users::toggleActive/$1', ['as' => 'backend.users.toggle-active']);
+        $routes->post('eliminar/(:num)', 'Backend\Users::delete/$1', ['as' => 'backend.users.delete']);
     });
 
     // Definición de rutas de todos los módulos del backend.
