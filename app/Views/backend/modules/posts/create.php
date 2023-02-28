@@ -34,7 +34,7 @@
 
     <div class="divider"></div>
 
-    <!-- Formulario de modificación del artículo -->
+    <!-- Formulario de registro del artículo -->
     <?= form_open(url_to('backend.modules.posts.create')) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo del título -->

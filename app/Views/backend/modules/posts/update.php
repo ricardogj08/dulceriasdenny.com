@@ -169,7 +169,7 @@
         <?= $this->setData([
             'id'      => 'modal-submit',
             'message' => '¿Deseas guardar los cambios?',
-        ])->include('backend/components/modal-submit') ?>
+        ], 'html')->include('backend/components/modal-submit') ?>
     <?= form_close() ?>
     <!-- Fin del formulario de modificación del artículo -->
 

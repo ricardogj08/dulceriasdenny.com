@@ -63,9 +63,9 @@
 
             <!-- Campo de activación -->
             <div class="form-control">
-                <label class="cursor-pointer label w-36">
+                <label class="cursor-pointer label w-52">
                     <span class="label-text">
-                        Habilitar
+                        Habilitar <span class="italic">(opcional)</span>
                     </span>
                     <input
                         type="checkbox"
@@ -77,7 +77,7 @@
                 </label>
                 <label class="label">
                     <span class="label-text-alt text-error">
-                        <?= validation_show_error('link') ?>
+                        <?= validation_show_error('active') ?>
                     </span>
                 </label>
             </div>
@@ -99,7 +99,7 @@
         <?= $this->setData([
             'id'      => 'modal-submit',
             'message' => '¿Deseas guardar los cambios?',
-        ])->include('backend/components/modal-submit') ?>
+        ], 'html')->include('backend/components/modal-submit') ?>
     <?= form_close() ?>
     <!-- Fin del formulario de modificación de la red social -->
 
