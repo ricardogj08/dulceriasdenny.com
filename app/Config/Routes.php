@@ -41,6 +41,7 @@ $routes->get('donde-comprar-dulces-mayoreo', 'Website\Pages::offices', ['as' => 
 $routes->get('nosotros', 'Website\Pages::about', ['as' => 'website.pages.about']);
 $routes->get('preguntas-frecuentes', 'Website\Pages::faqs', ['as' => 'website.pages.faqs']);
 $routes->get('aviso-privacidad', 'Website\Pages::privacy', ['as' => 'website.pages.privacy']);
+$routes->get('promociones', 'Website\Pages::promotions', ['as' => 'website.pages.promotions']);
 
 // Definición de rutas del formulario de contacto.
 $routes->group('contacto', static function ($routes) {
@@ -85,6 +86,7 @@ $routes->get('dulces-dia-muertos', 'Website\Seasons::products', ['as' => 'websit
 $routes->get('dulces-mexicanos', 'Website\Seasons::products', ['as' => 'website.seasons.patrias']);
 $routes->get('dulces-san-valentin', 'Website\Seasons::products', ['as' => 'website.seasons.valentin']);
 $routes->get('dulces-dia-nino', 'Website\Seasons::products', ['as' => 'website.seasons.nino']);
+$routes->get('dulces-dia-madres', 'Website\Seasons::products', ['as' => 'website.seasons.madres']);
 $routes->get('dulces-navidad', 'Website\Seasons::products', ['as' => 'website.seasons.navidad']);
 $routes->get('dulces-cumpleanos', 'Website\Seasons::products', ['as' => 'website.seasons.cumpleanos']);
 $routes->get('mesas-dulces', 'Website\Seasons::products', ['as' => 'website.seasons.mesas']);
