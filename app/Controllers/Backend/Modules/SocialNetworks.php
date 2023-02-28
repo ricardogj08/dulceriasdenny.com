@@ -13,4 +13,14 @@ class SocialNetworks extends BaseController
     {
         return view('backend/modules/social-networks/index');
     }
+
+    /**
+     * Renderiza la página para modificar redes sociales
+     * y modifica los datos de una red social.
+     *
+     * @param mixed|null $id
+     */
+    public function update($id = null)
+    {
+    }
 }
