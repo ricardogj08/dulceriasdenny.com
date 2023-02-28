@@ -115,6 +115,25 @@
             </div>
             <!-- Fin del campo del email -->
 
+            <!-- Campo del interés -->
+            <div class="form-control w-full">
+                <label for="" class="label">
+                    <span class="label-text">
+                        Interés en:
+                    </span>
+                </label>
+                <?= form_dropdown('', [], '', [
+                    'id'    => '',
+                    'class' => 'select select-bordered select-primary w-full',
+                ]) ?>
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= validation_show_error('') ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del interés -->
+
             <!-- Campo del mensaje -->
             <div class="form-control">
                 <label for="message" class="label">

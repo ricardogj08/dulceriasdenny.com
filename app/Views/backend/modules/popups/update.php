@@ -149,6 +149,6 @@
     <?= $this->setData([
         'id'        => 'modal-confirm',
         'routeName' => 'backend.modules.popups.index',
-        'message'   => '¿Deseas cancelar las modificaciones del Pop Up',
+        'message'   => '¿Deseas cancelar las modificaciones del Pop Up?',
     ], 'html')->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>

@@ -26,6 +26,8 @@ class Users extends BaseController
     /**
      * Renderiza la página para modificar usuarios de acceso
      * y modifica los datos de un usuario de acceso.
+     *
+     * @param mixed|null $id
      */
     public function update($id = null)
     {
@@ -34,6 +36,8 @@ class Users extends BaseController
 
     /**
      * Alterna el estado de cuenta de un usuario de acceso.
+     *
+     * @param mixed|null $id
      */
     public function toggleActive($id = null)
     {
@@ -41,6 +45,8 @@ class Users extends BaseController
 
     /**
      * Elimina el registro de un usuario de acceso.
+     *
+     * @param mixed|null $id
      */
     public function delete($id = null)
     {
