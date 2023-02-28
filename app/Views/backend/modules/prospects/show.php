@@ -35,71 +35,73 @@
     <div class="divider"></div>
 
     <!-- Tabla de datos del prospecto -->
-    <div class="overflow-x-auto">
-        <table class="table w-full table-zebra">
-            <tr>
-                <th>Nombre completo:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Teléfono:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Interés en:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Mensaje:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Rating:</th>
-                <td>
-                    <div class="flex items-center gap-x-2">
-                        <div class="font-bold">
-                            <?= esc(number_format(0, 1)) ?>
+    <div class="pb-4">
+        <div class="overflow-x-auto">
+            <table class="table w-full table-zebra">
+                <tr>
+                    <th>Nombre completo:</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Teléfono:</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Interés en:</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Mensaje:</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Rating:</th>
+                    <td>
+                        <div class="flex items-center gap-x-2">
+                            <div class="font-bold">
+                                <?= esc(number_format(0, 1)) ?>
+                            </div>
+                            <div class="rating rating-half">
+                                <?php foreach (range(0, 10) as $rating): ?>
+                                    <input
+                                        type="radio"
+                                        name="rating"
+                                        class="<?= $rating
+                                            ? ($rating % 2
+                                                ? 'mask mask-star-2 bg-orange-400 mask-half-1'
+                                                : 'mask mask-star-2 bg-orange-400 mask-half-2 mr-2')
+                                            : 'rating-hidden' ?>"
+                                        value=""
+                                        aria-label="Rating de <?= esc($rating) ?>"
+                                        disabled
+                                    >
+                                <?php endforeach ?>
+                            </div>
                         </div>
-                        <div class="rating rating-half">
-                            <?php foreach (range(0, 10) as $rating): ?>
-                                <input
-                                    type="radio"
-                                    name="rating"
-                                    class="<?= $rating
-                                        ? ($rating % 2
-                                            ? 'mask mask-star-2 bg-orange-400 mask-half-1'
-                                            : 'mask mask-star-2 bg-orange-400 mask-half-2 mr-2')
-                                        : 'rating-hidden' ?>"
-                                    value=""
-                                    aria-label="Rating de <?= esc($rating) ?>"
-                                    disabled
-                                >
-                            <?php endforeach ?>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Observaciones:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Fecha de registro:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Fecha de modificación:</th>
-                <td></td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Observaciones:</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Fecha de registro:</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Fecha de modificación:</th>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </div>
     <!-- Fin de la tabla de datos del prospecto -->
 
-    <div class="pt-4 flex flex-col lg:flex-row lg:items-center justify-end gap-2">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-2">
         <!-- Formulario para eliminar el prospecto -->
         <?= form_open(url_to('backend.modules.prospects.delete', 1)) ?>
             <label
