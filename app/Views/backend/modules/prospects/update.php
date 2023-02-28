@@ -2,7 +2,7 @@
 
 <?= $this->section('head') ?>
     <title>
-        Ricardo García Jiménez | Modificar
+        Modificar | Ricardo García Jiménez
     </title>
 
     <meta
@@ -49,7 +49,7 @@
                         placeholder="Escribe su nombre completo"
                         class="input input-bordered input-primary w-full"
                     >
-                    <button type="button" class="btn btn-primary btn-square">
+                    <button type="button" aria-label="Campo del nombre del prospecto" class="btn btn-primary btn-square">
                         <i class="ri-user-3-fill text-xl"></i>
                     </button>
                 </div>
@@ -76,7 +76,7 @@
                         placeholder="Escribe su teléfono"
                         class="input input-bordered input-primary w-full"
                     >
-                    <button type="button" class="btn btn-primary btn-square">
+                    <button type="button" aria-label="Campo del teléfono del prospecto" class="btn btn-primary btn-square">
                         <i class="ri-phone-fill text-xl"></i>
                     </button>
                 </div>
@@ -103,7 +103,7 @@
                         placeholder="Escribe su email"
                         class="input input-bordered input-primary w-full"
                     >
-                    <button type="button" class="btn btn-primary btn-square">
+                    <button type="button" aria-label="Campo del email del prospecto" class="btn btn-primary btn-square">
                         <i class="ri-mail-fill text-xl"></i>
                     </button>
                 </div>
@@ -119,13 +119,13 @@
             <div class="form-control">
                 <label for="message" class="label">
                     <span class="label-text">
-                        Mensaje (opcional):
+                        Mensaje <span class="italic">(opcional)</span>:
                     </span>
                 </label>
                 <textarea
                     name="message"
                     id="message"
-                    class="textarea textarea-bordered textarea-secondary h-32"
+                    class="textarea textarea-bordered textarea-secondary h-32 w-full"
                     placeholder="Escribe el mensaje del prospecto..."
                 ></textarea>
                 <label class="label">
@@ -140,7 +140,7 @@
             <div class="form-control">
                 <label for="rating" class="label">
                     <span class="label-text">
-                        Rating (opcional):
+                        Rating <span class="italic">(opcional)</span>:
                     </span>
                 </label>
                 <div class="flex items-center gap-x-2">
@@ -177,13 +177,13 @@
             <div class="form-control">
                 <label for="observations" class="label">
                     <span class="label-text">
-                        Observaciones (opcional):
+                        Observaciones <span class="italic">(opcional)</span>:
                     </span>
                 </label>
                 <textarea
                     name="observations"
                     id="observations"
-                    class="textarea textarea-bordered textarea-secondary h-32"
+                    class="textarea textarea-bordered textarea-secondary h-32 w-full"
                     placeholder="Escribe una nota para el prospecto..."
                 ></textarea>
                 <label class="label">
