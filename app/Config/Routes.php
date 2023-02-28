@@ -142,7 +142,12 @@ $routes->group('backend', static function ($routes) {
 
         // Definición de rutas del módulo de Pop-Ups.
         $routes->group('pop-ups', static function ($routes) {
+            $routes->get('nuevo', 'Backend\Modules\PopUps::create', ['as' => 'backend.modules.popups.create']);
+            $routes->post('nuevo', 'Backend\Modules\PopUps::create', ['as' => 'backend.modules.popups.create']);
             $routes->get('', 'Backend\Modules\PopUps::index', ['as' => 'backend.modules.popups.index']);
+            $routes->get('modificar/(:num)', 'Backend\Modules\PopUps::update/$1', ['as' => 'backend.modules.popups.update']);
+            $routes->post('modificar/(:num)', 'Backend\Modules\PopUps::update/$1', ['as' => 'backend.modules.popups.update']);
+            $routes->post('eliminar/(:num)', 'Backend\Modules\PopUps::delete/$1', ['as' => 'backend.modules.popups.delete']);
         });
     });
 
