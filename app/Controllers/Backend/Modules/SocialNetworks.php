@@ -22,5 +22,6 @@ class SocialNetworks extends BaseController
      */
     public function update($id = null)
     {
+        return view('backend/modules/social-networks/update');
     }
 }
