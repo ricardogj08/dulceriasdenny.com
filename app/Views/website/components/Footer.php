@@ -39,8 +39,8 @@
             <div class="md:w-[20%]">
                 <h3 class="font-bold text-denny-blue-300 text-lg mb-4 text-center md:text-left">Soporte y Politicas</h3>
                 <ul class="text-sm">
-                    <li><a href="" class="transition-opacity hover:opacity-80">Preguntas Frecuentes</a></li>
-                    <li class="mt-1"><a href="" class="transition-opacity hover:opacity-80">Terminos y Condiciones</a></li>
+                    <li><a href="<?= url_to('website.pages.faqs') ?>" class="transition-opacity hover:opacity-80">Preguntas Frecuentes</a></li>
+                    <li class="mt-1"><a href="<?= url_to('website.pages.privacy') ?>" class="transition-opacity hover:opacity-80">Terminos y Condiciones</a></li>
                 </ul>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <p class="mx-auto flex flex-col text-xs lg:text-sm">
                     <small>© Dulcerías Denny 2022 • Todos los derechos reservados.
                         <strong>
-                            <a href="/privacidad" target="_blank">Aviso de Privacidad</a>
+                            <a href="<?= url_to('website.pages.privacy') ?>" target="_blank">Aviso de Privacidad</a>
                         </strong>
                     </small>
                     <small>Diseño y desarrollo web por: <a href="https://www.genotipo.com/" target="_blank">Genotipo®</a></small>
