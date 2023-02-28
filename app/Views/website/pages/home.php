@@ -85,7 +85,7 @@
 	<div class="container text-center">
 		<h2 class="font-bold text-denny-blue-300 text-center text-2xl">Nuestras marcas de dulces</h2>
 		<?= $this->setVar('brands', $brands)->setVar('isNameVisible', false)->include('website/components/BrandsList') ?>
-		<a href="/marcas-dulces" class="py-2 px-3 inline-block bg-denny-blue-100 text-white rounded-3xl hover:bg-denny-blue-300 transition-colors delay-100">Ver todos los productos por marca</a>
+		<a href="<?= url_to('website.brands.index') ?>" class="py-2 px-3 inline-block bg-denny-blue-100 text-white rounded-3xl hover:bg-denny-blue-300 transition-colors delay-100">Ver todos los productos por marca</a>
 	</div>
 </section>
 
