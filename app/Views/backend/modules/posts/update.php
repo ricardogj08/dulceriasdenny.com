@@ -17,7 +17,7 @@
 <?= $this->section('content') ?>
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-4">
+            <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
                 Título de artículo
             </h1>
             <h2 class="text-sm">
@@ -106,7 +106,7 @@
             </div>
             <!-- Fin del campo del resumen del artículo -->
 
-            <!-- Campo de la fecha programación -->
+            <!-- Campo de la fecha de programación -->
             <div class="form-control">
                 <label for="started_at" class="label">
                     <span class="label-text">

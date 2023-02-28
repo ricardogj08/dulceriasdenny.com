@@ -117,8 +117,8 @@ $routes->group('backend', static function ($routes) {
         $routes->group('prospectos', static function ($routes) {
             $routes->get('', 'Backend\Modules\Prospects::index', ['as' => 'backend.modules.prospects.index']);
             $routes->get('(:num)', 'Backend\Modules\Prospects::show/$1', ['as' => 'backend.modules.prospects.show']);
-            $routes->get('editar/(:num)', 'Backend\Modules\Prospects::update/$1', ['as' => 'backend.modules.prospects.update']);
-            $routes->post('editar/(:num)', 'Backend\Modules\Prospects::update/$1', ['as' => 'backend.modules.prospects.update']);
+            $routes->get('modificar/(:num)', 'Backend\Modules\Prospects::update/$1', ['as' => 'backend.modules.prospects.update']);
+            $routes->post('modificar/(:num)', 'Backend\Modules\Prospects::update/$1', ['as' => 'backend.modules.prospects.update']);
             $routes->post('eliminar/(:num)', 'Backend\Modules\Prospects::delete/$1', ['as' => 'backend.modules.prospects.delete']);
         });
 
@@ -128,8 +128,8 @@ $routes->group('backend', static function ($routes) {
             $routes->post('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
             $routes->get('', 'Backend\Modules\Posts::index', ['as' => 'backend.modules.posts.index']);
             $routes->get('(:num)', 'Backend\Modules\Posts::show/$1', ['as' => 'backend.modules.posts.show']);
-            $routes->get('editar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
-            $routes->post('editar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
+            $routes->get('modificar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
+            $routes->post('modificar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
             $routes->post('eliminar/(:num)', 'Backend\Modules\Posts::delete/$1', ['as' => 'backend.modules.posts.delete']);
         });
 
