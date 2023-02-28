@@ -4,7 +4,7 @@
     </picture>
     <div class="text-center mt-1">
         <p class="font-bold"><?= esc($product['name']) ?></p>
-        <?php if ($product['quantity']) : ?>
+        <?php if (isset($product['quantity'])) : ?>
             <p class="font-medium"><?= esc($product['quantity']) ?></p>
         <?php endif; ?>
         <p class="font-medium">
