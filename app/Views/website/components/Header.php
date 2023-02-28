@@ -43,30 +43,31 @@
                 <div>
                   <h3 class="text-denny-dark-500 font-black">Categorias</h3>
                   <ul class="lg:flex lg:flex-col gap-2 grid grid-cols-2 md:grid-cols-4">
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Articulos de fiesta</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Chocolates</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Paletas</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Caramelos</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Dulces enchilados</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Botanas</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Chicles</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Gomitas</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Bombones</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Dulces tipicos</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/categorias" role="menuitem" class="hover:text-denny-blue-100">Surtidos</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.fiestas') ?>" role="menuitem" class="hover:text-denny-blue-100">Articulos de fiesta</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.chocolotes') ?>" role="menuitem" class="hover:text-denny-blue-100">Chocolates</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.paletas') ?>" role="menuitem" class="hover:text-denny-blue-100">Paletas</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.caramelos') ?>" role="menuitem" class="hover:text-denny-blue-100">Caramelos</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.enchilados') ?>" role="menuitem" class="hover:text-denny-blue-100">Dulces enchilados</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.botonas') ?>" role="menuitem" class="hover:text-denny-blue-100">Botanas</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.chicles') ?>" role="menuitem" class="hover:text-denny-blue-100">Chicles</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.gomitas') ?>" role="menuitem" class="hover:text-denny-blue-100">Gomitas</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.bombones') ?>" role="menuitem" class="hover:text-denny-blue-100">Bombones</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.tipicos') ?>" role="menuitem" class="hover:text-denny-blue-100">Dulces tipicos</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.surtidos') ?>" role="menuitem" class="hover:text-denny-blue-100">Surtidos</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.categories.galletas') ?>" role="menuitem" class="hover:text-denny-blue-100">Galletas</a></li>
                   </ul>
                 </div>
                 <div>
                   <h3 class="text-denny-dark-500 font-black">Temporadas</h3>
                   <ul class="lg:flex lg:flex-col gap-2 grid grid-cols-2 md:grid-cols-4">
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">Cumpleaños</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">Mesa de dulces</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">San Valentin</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">Dia del niño</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">Dia de la madre</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">Fiestas patrias</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">Dias de muertos</a></li>
-                    <li class="ml-2 lg:ml-0"><a href="/temporadas" role="menuitem" class="hover:text-denny-blue-100">Navidad</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.cumpleanos') ?>" role="menuitem" class="hover:text-denny-blue-100">Cumpleaños</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.mesas') ?>" role="menuitem" class="hover:text-denny-blue-100">Mesa de dulces</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.valentin') ?>" role="menuitem" class="hover:text-denny-blue-100">San Valentin</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.nino') ?>" role="menuitem" class="hover:text-denny-blue-100">Dia del niño</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.madres') ?>" role="menuitem" class="hover:text-denny-blue-100">Dia de la madre</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.patrias') ?>" role="menuitem" class="hover:text-denny-blue-100">Fiestas patrias</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.muertos') ?>" role="menuitem" class="hover:text-denny-blue-100">Dias de muertos</a></li>
+                    <li class="ml-2 lg:ml-0"><a href="<?= url_to('website.seasons.navidad') ?>" role="menuitem" class="hover:text-denny-blue-100">Navidad</a></li>
                   </ul>
                 </div>
               </div>
@@ -112,7 +113,7 @@
         </li>
       </ul>
     </nav>
-    <a href="/" class="inline-flex w-28 md:w-36 md:-mt-11 justify-self-center">
+    <a href="<?= url_to('website.pages.home') ?>" class="inline-flex w-28 md:w-36 md:-mt-11 justify-self-center">
       <img src="<?= base_url('logo.svg') ?>" alt="Dulcerias Denny Logo" class="w-3/4 md:w-full h-full object-cover" />
     </a>
     <div class="justify-self-end">
