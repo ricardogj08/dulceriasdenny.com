@@ -145,7 +145,7 @@ $routes->group('backend', static function ($routes) {
     });
 
     // Ruta por defecto.
-    $routes->addRedirect('', 'backend.modules.prospects.index');
+    $routes->addRedirect('', 'backend.modules.prospects.index', 301);
 });
 
 /*

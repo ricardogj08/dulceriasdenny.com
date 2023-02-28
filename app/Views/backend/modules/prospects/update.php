@@ -41,13 +41,18 @@
                         Nombre completo:
                     </span>
                 </label>
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Escribe su nombre completo"
-                    class="input input-bordered input-primary w-full"
-                >
+                <div class="input-group">
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Escribe su nombre completo"
+                        class="input input-bordered input-primary w-full"
+                    >
+                    <button type="button" class="btn btn-primary btn-square">
+                        <i class="ri-user-3-fill text-xl"></i>
+                    </button>
+                </div>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= validation_show_error('name') ?>
@@ -63,13 +68,18 @@
                         Teléfono:
                     </span>
                 </label>
-                <input
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    placeholder="Escribe su teléfono"
-                    class="input input-bordered input-primary w-full"
-                >
+                <div class="input-group">
+                    <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        placeholder="Escribe su teléfono"
+                        class="input input-bordered input-primary w-full"
+                    >
+                    <button type="button" class="btn btn-primary btn-square">
+                        <i class="ri-phone-fill text-xl"></i>
+                    </button>
+                </div>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= validation_show_error('phone') ?>
@@ -85,13 +95,18 @@
                         Email:
                     </span>
                 </label>
-                <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Escribe su email"
-                    class="input input-bordered input-primary w-full"
-                >
+                <div class="input-group">
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Escribe su email"
+                        class="input input-bordered input-primary w-full"
+                    >
+                    <button type="button" class="btn btn-primary btn-square">
+                        <i class="ri-mail-fill text-xl"></i>
+                    </button>
+                </div>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= validation_show_error('email') ?>

@@ -93,8 +93,8 @@
 
     <li></li>
 
-    <div class="collapse collapse-arrow text-sm">
-        <input type="checkbox" class="peer">
+    <li class="collapse collapse-arrow text-sm">
+        <input type="checkbox" aria-label="Botón que desglosa las opciones de la cuenta del usuario" class="peer">
         <div class="collapse-title font-medium peer-checked:text-primary">
             Ricardo García Jiménez
         </div>
@@ -114,6 +114,6 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </li>
 </ul>
 <!-- Fin del menú de navegación -->

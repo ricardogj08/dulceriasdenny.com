@@ -221,6 +221,7 @@
                             <!-- Botón para mostrar los datos del prospecto -->
                             <a
                                 href="<?= url_to('backend.modules.prospects.show', 1) ?>"
+                                aria-label="Botón para mostrar los datos del prospecto"
                                 class="btn btn-square btn-warning btn-outline btn-sm"
                             >
                                 <i class="ri-eye-line text-xl"></i>
@@ -230,6 +231,7 @@
                             <!-- Botón para editar los datos del prospecto -->
                             <a
                                 href="<?= url_to('backend.modules.prospects.update', 1) ?>"
+                                aria-label="Botón para editar los datos del prospecto"
                                 class="btn btn-square btn-info btn-outline btn-sm"
                             >
                                 <i class="ri-pencil-line text-xl"></i>
