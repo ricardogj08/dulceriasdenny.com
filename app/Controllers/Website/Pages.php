@@ -87,6 +87,19 @@ class Pages extends BaseController
     }
 
     /**
+     * Renderiza la página de aviso de privacidad.
+     */
+    public function promotions()
+    {
+        // Decode the JSON files
+        $jsonProducts = file_get_contents('temporalDB/products.json');
+        $products = json_decode($jsonProducts, true);
+        return view('website/pages/promotions', [
+            'products' => $products
+        ]);
+    }
+
+    /**
      * Renderiza la página de error 404.
      */
     public function error404()
