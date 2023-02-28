@@ -8,7 +8,6 @@
 <!-- JS -->
 <?= $this->section('javascript') ?>
 <script src="<?= base_url('js/components/navbar.js') ?>" defer type="module"></script>
-<script src="<?= base_url('js/components/parallax.js') ?>" defer type="module"></script>
 <?= $this->endSection() ?>
 
 <!-- Content -->
