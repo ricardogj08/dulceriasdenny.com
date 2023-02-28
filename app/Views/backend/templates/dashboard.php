@@ -1,6 +1,8 @@
 <?= $this->extend('backend/templates/page') ?>
 
 <?= $this->section('head') ?>
+    <!-- Plantilla para todas las páginas del backend que requieren sidebar -->
+
     <!-- Sección de etiquetas agregadas al head -->
     <?= $this->renderSection('head') ?>
 <?= $this->endSection() ?>
@@ -16,8 +18,13 @@
                 <div class="flex-1">
                     <a
                         href="<?= url_to('backend.modules.prospects.index') ?>"
-                        class="btn btn-ghost normal-case text-2xl"
+                        class="btn btn-ghost normal-case text-xl font-bold gap-2"
                     >
+                        <img
+                            src="<?= base_url(['uploads/settings', setting()->get('App.general', 'favicon')]) ?>"
+                            alt="Favicon de <?= esc(setting()->get('App.general', 'company')) ?>"
+                            class="w-6 h-6"
+                        >
                         Dashboard
                     </a>
                 </div>
@@ -27,12 +34,15 @@
                     </label>
                 </div>
             </div>
+            <!-- Fin de la barra de navegación en móvil -->
 
             <!-- Sección del contenido agregado a la página web -->
             <main class="grow container px-6 lg:px-12 py-6 lg:py-8">
                 <?= $this->renderSection('content') ?>
             </main>
+            <!-- Fin de la sección del contenido agregado a la página web -->
 
+            <!-- Pie de página del dashboard -->
             <?= $this->include('backend/components/footer') ?>
         </div>
 
@@ -42,6 +52,7 @@
 
             <?= $this->include('backend/components/menu') ?>
         </div>
+        <!-- Fin del contenido del sidebar -->
     </div>
 <?= $this->endSection() ?>
 

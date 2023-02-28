@@ -23,7 +23,11 @@
         </div>
 
         <!-- Botón para exportar los prospectos -->
-        <a href="#" target="_blank" class="btn gap-2">
+        <a
+            href="#"
+            target="_blank"
+            class="btn gap-2"
+        >
             <i class="ri-download-cloud-fill text-xl"></i>
             Exportar
         </a>
@@ -57,7 +61,7 @@
                 </div>
                 <!-- Fin del campo de búsqueda -->
 
-                <!-- Botón que muestra el formulario de filtros -->
+                <!-- Botón que muestra los campos de filtrado -->
                 <button
                     type="button"
                     data-collapse-toggle="filters"
@@ -72,7 +76,7 @@
             <div id="filters" class="hidden pt-4">
                 <div class="bg-base-200 p-6 rounded-xl">
                     <div class="pb-4 grid grid-cols-1 lg:grid-cols-4 items-end gap-2">
-                        <!-- Campo del filtrado de búsqueda -->
+                        <!-- Campo de filtrado de búsqueda -->
                         <div class="form-control w-full">
                             <label for="filter" class="label">
                                 <span class="label-text">
@@ -142,7 +146,7 @@
                         </div>
                         <!-- Fin del campo de filtrado por rating -->
 
-                        <!-- Campo de filtrado de fecha desde -->
+                        <!-- Campo de filtrado por fecha desde -->
                         <div class="form-control w-full">
                             <label for="dateFrom" class="label">
                                 <span class="label-text">
@@ -157,9 +161,9 @@
                                 value=""
                             >
                         </div>
-                        <!-- Fin del campo de filtrado de fecha desde -->
+                        <!-- Fin del campo de filtrado por fecha desde -->
 
-                        <!-- Campo de filtrado de fecha hasta -->
+                        <!-- Campo de filtrado por fecha hasta -->
                         <div class="form-control w-full">
                             <label for="dateTo" class="label">
                                 <span class="label-text">
@@ -174,11 +178,11 @@
                                 value=""
                             >
                         </div>
-                        <!-- Fin del campo de filtrado de fecha hasta -->
+                        <!-- Fin del campo de filtrado por fecha hasta -->
                     </div>
 
                     <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-2">
-                        <!-- Botón para aplicar los filtros -->
+                        <!-- Botón que aplica los filtros -->
                         <input type="submit" value="Aplicar" class="btn btn-primary">
 
                         <!-- Botón para restaurar los filtros -->
@@ -214,25 +218,25 @@
                     <td></td>
                     <td>
                         <div class="flex gap-2">
-                            <!-- Botón para mostrar los datos de un prospecto -->
+                            <!-- Botón para mostrar los datos del prospecto -->
                             <a
                                 href="<?= url_to('backend.modules.prospects.show', 1) ?>"
                                 class="btn btn-square btn-warning btn-outline btn-sm"
                             >
                                 <i class="ri-eye-line text-xl"></i>
                             </a>
-                            <!-- Fin del botón para mostrar los datos de un prospecto -->
+                            <!-- Fin del botón para mostrar los datos del prospecto -->
 
-                            <!-- Botón para editar los datos de un prospecto -->
+                            <!-- Botón para editar los datos del prospecto -->
                             <a
                                 href="<?= url_to('backend.modules.prospects.update', 1) ?>"
                                 class="btn btn-square btn-info btn-outline btn-sm"
                             >
                                 <i class="ri-pencil-line text-xl"></i>
                             </a>
-                            <!-- Fin del botón para editar los datos de un prospecto -->
+                            <!-- Fin del botón para editar los datos del prospecto -->
 
-                            <!-- Formulario para eliminar un prospecto -->
+                            <!-- Formulario para eliminar el prospecto -->
                             <?= form_open(url_to('backend.modules.prospects.delete', 1)) ?>
                                 <label
                                     for="modal-submit"
@@ -246,7 +250,7 @@
                                     'message' => '¿Deseas eliminar este prospecto?',
                                 ], 'html')->include('backend/components/modal-submit') ?>
                             <?= form_close() ?>
-                            <!-- Fin del formulario para eliminar un prospecto -->
+                            <!-- Fin del formulario para eliminar el prospecto -->
                         </div>
                     </td>
                 </tr>

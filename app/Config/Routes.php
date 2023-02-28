@@ -92,15 +92,55 @@ $routes->get('dulces-dia-madre', 'Website\Seasons::products', ['as' => 'website.
 
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {
-    // Definición de rutas de los módulos del backend.
+    // Ruta de cierre de sesión
+    $routes->get('logout', 'Backend\Auth::logout', ['as' => 'backend.auth.logout']);
+
+    // Definición de rutas de la cuenta del usuario de sesión.
+    $routes->group('cuenta', static function ($routes) {
+        $routes->get('', 'Backend\Account::update', ['as' => 'backend.account.update']);
+        $routes->post('', 'Backend\Account::update', ['as' => 'backend.account.update']);
+    });
+
+    // Definición de rutas de configuraciones del backend.
+    $routes->group('configuraciones', static function ($routes) {
+        $routes->get('', 'Backend\Settings::index', ['as' => 'backend.settings.index']);
+    });
+
+    // Definición de rutas de administración de usuarios al backend.
+    $routes->group('usuarios', static function ($routes) {
+        $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
+    });
+
+    // Definición de rutas de todos los módulos del backend.
     $routes->group('modulos', static function ($routes) {
         // Definición de rutas del módulo de prospectos.
         $routes->group('prospectos', static function ($routes) {
             $routes->get('', 'Backend\Modules\Prospects::index', ['as' => 'backend.modules.prospects.index']);
-            $routes->get('(:num)', 'Backend\Modules\Prospects::show', ['as' => 'backend.modules.prospects.show']);
-            $routes->get('editar/(:num)', 'Backend\Modules\Prospects::update', ['as' => 'backend.modules.prospects.update']);
-            $routes->post('editar/(:num)', 'Backend\Modules\Prospects::update', ['as' => 'backend.modules.prospects.update']);
-            $routes->post('eliminar/(:num)', 'Backend\Modules\Prospects::delete', ['as' => 'backend.modules.prospects.delete']);
+            $routes->get('(:num)', 'Backend\Modules\Prospects::show/$1', ['as' => 'backend.modules.prospects.show']);
+            $routes->get('editar/(:num)', 'Backend\Modules\Prospects::update/$1', ['as' => 'backend.modules.prospects.update']);
+            $routes->post('editar/(:num)', 'Backend\Modules\Prospects::update/$1', ['as' => 'backend.modules.prospects.update']);
+            $routes->post('eliminar/(:num)', 'Backend\Modules\Prospects::delete/$1', ['as' => 'backend.modules.prospects.delete']);
+        });
+
+        // Definición de rutas del módulo del blog.
+        $routes->group('blog', static function ($routes) {
+            $routes->get('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
+            $routes->post('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
+            $routes->get('', 'Backend\Modules\Posts::index', ['as' => 'backend.modules.posts.index']);
+            $routes->get('(:num)', 'Backend\Modules\Posts::show/$1', ['as' => 'backend.modules.posts.show']);
+            $routes->get('editar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
+            $routes->post('editar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
+            $routes->post('eliminar/(:num)', 'Backend\Modules\Posts::delete/$1', ['as' => 'backend.modules.posts.delete']);
+        });
+
+        // Definición de rutas del módulo de redes sociales.
+        $routes->group('redes-sociales', static function ($routes) {
+            $routes->get('', 'Backend\Modules\SocialNetworks::index', ['as' => 'backend.modules.social-networks.index']);
+        });
+
+        // Definición de rutas del módulo de Pop-Ups.
+        $routes->group('pop-ups', static function ($routes) {
+            $routes->get('', 'Backend\Modules\PopUps::index', ['as' => 'backend.modules.popups.index']);
         });
     });
 

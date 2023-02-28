@@ -201,8 +201,8 @@
 
     <!-- Modal de confirmación -->
     <?= $this->setData([
-        'id'      => 'modal-confirm',
-        'method'  => 'backend.modules.prospects.index',
-        'message' => '¿Deseas cancelar las modificaciones del prospecto?',
+        'id'        => 'modal-confirm',
+        'routeName' => 'backend.modules.prospects.index',
+        'message'   => '¿Deseas cancelar las modificaciones del prospecto?',
     ], 'html')->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>

@@ -8,7 +8,7 @@ $faviconMimeType = (new File(FCPATH . $favicon, true))->getMimeType();
 <?= $this->extend('backend/templates/default') ?>
 
 <?= $this->section('head') ?>
-    <!-- Plantilla para todas las páginas del backend -->
+    <!-- Plantilla para todas las páginas del backend que no requieren sidebar -->
 
     <!-- Hojas de estilo -->
     <link rel="stylesheet" href="<?= base_url('css/backend.css') ?>">

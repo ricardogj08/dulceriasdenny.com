@@ -27,7 +27,7 @@ Instala las dependencias del proyecto:
 
 	composer install --no-dev -o
 
-## Configuración 
+## Configuración
 
 Copia el archivo de configuración del proyecto `env` a `.env`:
 

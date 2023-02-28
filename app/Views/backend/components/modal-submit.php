@@ -3,6 +3,7 @@
 
 <label for="<?= $id ?>" class="modal cursor-pointer modal-bottom lg:modal-middle">
     <label class="modal-box relative">
+        <!-- Botón que cierra el modal -->
         <label for="<?= $id ?>" class="btn btn-sm btn-circle absolute right-2 top-2">
             ✕
         </label>
@@ -23,7 +24,7 @@
                 Cancelar
             </label>
         </div>
+        <!-- Fin de los botones de acción -->
     </label>
 </label>
-
 <!-- Fin del modal de confirmación para formularios -->

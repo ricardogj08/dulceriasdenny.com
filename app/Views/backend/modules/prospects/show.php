@@ -22,6 +22,7 @@
             </h2>
         </div>
 
+        <!-- Botón de retroceso -->
         <a
             href="<?= url_to('backend.modules.prospects.index') ?>"
             class="btn gap-2"
@@ -33,6 +34,7 @@
 
     <div class="divider"></div>
 
+    <!-- Tabla de datos del prospecto -->
     <div class="overflow-x-auto">
         <table class="table w-full table-zebra">
             <tr>
@@ -95,6 +97,7 @@
             </tr>
         </table>
     </div>
+    <!-- Fin de la tabla de datos del prospecto -->
 
     <div class="pt-4 flex flex-col lg:flex-row lg:items-center justify-end gap-2">
         <!-- Formulario para eliminar el prospecto -->
