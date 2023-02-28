@@ -4,3 +4,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    trix-toolbar {
+        @apply sticky top-0 left-0 w-full bg-base-100 py-2 z-20;
+    }
+
+    trix-toolbar button {
+        @apply bg-slate-50 !important;
+    }
+
+    trix-editor a {
+        @apply link link-info !important;
+    }
+
+    trix-editor pre {
+        @apply bg-neutral text-neutral-content !important;
+    }
+
+    trix-editor ul {
+        @apply list-disc !important;
+    }
+
+    trix-editor ol {
+        @apply list-decimal !important;
+    }
+
+    trix-editor figcaption {
+        @apply text-base-content !important;
+    }
+}
