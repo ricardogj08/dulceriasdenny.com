@@ -1,0 +1,40 @@
+<?= $this->extend('backend/templates/page') ?>
+
+<?= $this->section('head') ?>
+    <!-- Plantilla para todas las páginas de autenticación del backend -->
+
+    <!-- Sección de etiquetas agregadas al head -->
+    <?= $this->renderSection('head') ?>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+    <div class="grid grid-cols-1 lg:grid-cols-2 lg:min-h-screen lg:bg-base-200">
+        <!-- Fondo de inicio de sesión -->
+        <figure class="h-24 lg:h-auto">
+            <img
+                src="https://picsum.photos/1920/1080?random=1"
+                alt="Fondo de inicio de sesión"
+                class="w-full h-full object-cover"
+            >
+        </figure>
+        <!-- Fin del fondo de inicio de sesión -->
+
+        <!-- Sección del contenido agregado a la página web -->
+        <main class="flex flex-col justify-center items-center">
+            <div class="container max-w-xl bg-base-100 px-6 lg:px-10 py-8 lg:rounded lg:shadow-2xl">
+                <!-- Logo de la empresa -->
+                <figure class="pb-8">
+                    <img
+                        src="https://picsum.photos/1920/1080?random=2"
+                        alt="Logo"
+                        class="h-12 w-auto object-cover"
+                    >
+                </figure>
+                <!-- Fin del logo de la empresa -->
+
+                <?= $this->renderSection('content') ?>
+            </div>
+        </main>
+        <!-- Fin de la sección del contenido agregado a la página web -->
+    </div>
+<?= $this->endSection() ?>

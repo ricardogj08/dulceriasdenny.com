@@ -57,6 +57,8 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
+    <script src="<?= base_url('js/flowbite.js') ?>"></script>
+
     <!-- Sección de scripts de javascript agregados a la página web -->
     <?= $this->renderSection('javascript') ?>
 <?= $this->endSection() ?>

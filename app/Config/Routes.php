@@ -92,6 +92,16 @@ $routes->get('dulces-dia-madre', 'Website\Seasons::products', ['as' => 'website.
 
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {
+    // Definición de rutas de inicio de sesión.
+    $routes->group('login', static function ($routes) {
+        $routes->get('', 'Backend\Auth::login', ['as' => 'backend.auth.login']);
+        $routes->post('', 'Backend\Auth::login', ['as' => 'backend.auth.login']);
+        $routes->get('olvidado', 'Backend\Auth::forgotten', ['as' => 'backend.auth.forgotten']);
+        $routes->post('olvidado', 'Backend\Auth::forgotten', ['as' => 'backend.auth.forgotten']);
+        $routes->get('recuperacion/(:num)/(:hash)', 'Backend\Auth::recovery/$1/$2', ['as' => 'backend.auth.recovery']);
+        $routes->post('recuperacion/(:num)/(:hash)', 'Backend\Auth::recovery/$1/$2', ['as' => 'backend.auth.recovery']);
+    });
+
     // Ruta de cierre de sesión
     $routes->get('logout', 'Backend\Auth::logout', ['as' => 'backend.auth.logout']);
 
