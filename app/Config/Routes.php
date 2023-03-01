@@ -104,6 +104,8 @@ $routes->group('backend', static function ($routes) {
     // Definición de rutas de configuraciones del backend.
     $routes->group('configuraciones', static function ($routes) {
         $routes->get('', 'Backend\Settings::index', ['as' => 'backend.settings.index']);
+        $routes->get('modificar', 'Backend\Settings::update', ['as' => 'backend.settings.update']);
+        $routes->post('modificar', 'Backend\Settings::update', ['as' => 'backend.settings.update']);
     });
 
     // Definición de rutas de administración de usuarios al backend.

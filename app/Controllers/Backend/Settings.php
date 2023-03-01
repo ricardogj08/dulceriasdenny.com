@@ -13,4 +13,13 @@ class Settings extends BaseController
     {
         return view('backend/settings/index');
     }
+
+    /**
+     * Renderiza la página para editar las configuraciones del sitio web
+     * y modifica las configuraciones del sitio web.
+     */
+    public function update()
+    {
+        return view('backend/settings/update');
+    }
 }

@@ -101,9 +101,9 @@
                         name="password"
                         id="password"
                         placeholder="Escribe su contraseña"
-                        class="input input-bordered input-primary w-full"
+                        class="input input-bordered input-secondary w-full"
                     >
-                    <button type="button" aria-label="Campo de la contraseña del usuario" class="btn btn-primary btn-square">
+                    <button type="button" aria-label="Campo de la contraseña del usuario" class="btn btn-secondary btn-square">
                         <i class="ri-lock-fill text-xl"></i>
                     </button>
                 </div>
@@ -128,9 +128,9 @@
                         name="pass_confirm"
                         id="pass_confirm"
                         placeholder="Repita su contraseña"
-                        class="input input-bordered input-primary w-full"
+                        class="input input-bordered input-secondary w-full"
                     >
-                    <button type="button" aria-label="Campo de confirmación de la contraseña del usuario" class="btn btn-primary btn-square">
+                    <button type="button" aria-label="Campo de confirmación de la contraseña del usuario" class="btn btn-secondary btn-square">
                         <i class="ri-lock-fill text-xl"></i>
                     </button>
                 </div>
