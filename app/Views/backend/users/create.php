@@ -123,7 +123,7 @@
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo de la contraseña del usuario" class="btn btn-primary btn-square">
-                        <i class="ri-key-line text-xl"></i>
+                        <i class="ri-lock-fill text-xl"></i>
                     </button>
                 </div>
                 <label class="label">
@@ -150,7 +150,7 @@
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo de confirmación de contraseña del usuario" class="btn btn-primary btn-square">
-                        <i class="ri-key-line text-xl"></i>
+                        <i class="ri-lock-fill text-xl"></i>
                     </button>
                 </div>
                 <label class="label">
