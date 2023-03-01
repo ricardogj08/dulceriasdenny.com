@@ -154,7 +154,7 @@
             <!-- Fin del campo del contenido -->
 
             <!-- Botones de confirmación -->
-            <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-2">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-3">
                 <label for="modal-submit" class="btn btn-primary">
                     Guardar
                 </label>

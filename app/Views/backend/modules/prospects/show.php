@@ -37,7 +37,7 @@
     <!-- Tabla de datos del prospecto -->
     <div class="pb-4">
         <div class="overflow-x-auto">
-            <table class="table w-full table-zebra">
+            <table class="table table-zebra table-compact lg:table-normal w-full">
                 <tr>
                     <th>Nombre completo:</th>
                     <td></td>
@@ -101,7 +101,7 @@
     </div>
     <!-- Fin de la tabla de datos del prospecto -->
 
-    <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-2">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-3">
         <!-- Formulario para eliminar el prospecto -->
         <?= form_open(url_to('backend.modules.prospects.delete', 1)) ?>
             <label

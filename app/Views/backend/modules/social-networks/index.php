@@ -106,7 +106,7 @@
                         <!-- Fin del campo de filtrado por activación -->
                     </div>
 
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-2">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-3">
                         <!-- Botón que aplica los filtros -->
                         <input type="submit" value="Aplicar" class="btn btn-primary">
 

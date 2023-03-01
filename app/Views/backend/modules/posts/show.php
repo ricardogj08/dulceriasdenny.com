@@ -37,7 +37,7 @@
     <!-- Tabla de datos del prospecto -->
     <div class="pb-4">
         <div class="overflow-x-auto">
-            <table class="table w-full table-zebra">
+            <table class="table table-zebra table-compact lg:table-normal w-full">
                 <tr>
                     <th>Título:</th>
                     <td></td>
@@ -74,7 +74,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-2">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-3">
         <!-- Formulario para eliminar el artículo -->
         <?= form_open(url_to('backend.modules.posts.delete', 1)) ?>
             <label

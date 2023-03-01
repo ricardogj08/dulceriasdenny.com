@@ -14,6 +14,6 @@ class SettingSeeder extends Seeder
         helper('setting');
 
         setting()->get('App.general', 'favicon') ?? setting()->set('App.general', 'favicon.svg', 'favicon');
-        setting()->get('App.general', 'theme') ?? setting()->set('App.general', 'pastel', 'theme');
+        setting()->get('App.general', 'theme') ?? setting()->set('App.general', 'dracula', 'theme');
     }
 }
