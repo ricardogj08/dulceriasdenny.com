@@ -101,7 +101,10 @@
         <div class="collapse-content">
             <ul>
                 <li>
-                    <a href="<?= url_to('backend.account.update') ?>">
+                    <a
+                        href="<?= url_to('backend.account.update') ?>"
+                        class="<?= url_is_child('backend.account.update') ? 'active' : '' ?>"
+                    >
                         <i class="ri-account-circle-fill text-xl"></i>
                         Mi cuenta
                     </a>

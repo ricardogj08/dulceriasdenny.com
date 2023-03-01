@@ -135,13 +135,13 @@
                     Cancelar
                 </label>
             </div>
-
-            <!-- Modal de submit -->
-            <?= $this->setData([
-                'id'      => 'modal-submit',
-                'message' => '¿Deseas guardar los cambios?',
-            ], 'html')->include('backend/components/modal-submit') ?>
         </div>
+
+        <!-- Modal de submit -->
+        <?= $this->setData([
+            'id'      => 'modal-submit',
+            'message' => '¿Deseas guardar los cambios?',
+        ], 'html')->include('backend/components/modal-submit') ?>
     <?= form_close() ?>
     <!-- Fin del formulario de modificación del Pop Up -->
 
