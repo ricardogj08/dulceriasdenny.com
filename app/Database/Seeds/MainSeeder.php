@@ -14,5 +14,6 @@ class MainSeeder extends Seeder
         $this->call('SettingSeeder');
         $this->call('SocialNetworkSeeder');
         $this->call('RoleSeeder');
+        $this->call('UserSeeder');
     }
 }
