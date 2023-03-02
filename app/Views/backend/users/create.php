@@ -134,7 +134,7 @@
             </div>
             <!-- Fin del campo de la contraseña -->
 
-            <!-- Campo de confirmación de contraseña -->
+            <!-- Campo de confirmación de la contraseña -->
             <div class="form-control w-full">
                 <label for="pass_confirm" class="label">
                     <span class="label-text">
@@ -159,7 +159,7 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de confirmación de contraseña -->
+            <!-- Fin del campo de confirmación de la contraseña -->
 
             <!-- Botones de confirmación -->
             <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-3">
