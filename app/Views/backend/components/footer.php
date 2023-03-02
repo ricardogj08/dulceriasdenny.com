@@ -10,7 +10,7 @@ $year = Time::now()->getYear();
   <div>
     <p>
         Copyright &copy <?= $year === '2023' ? '2023' : "2023-{$year}" ?>
-        Todos los derechos reservados por
+        - Todos los derechos reservados por
         <a href="https://genotipo.com/" target="_blank" rel="nofollow" class="hover:font-medium">
             Genotipo&reg;
         </a>
