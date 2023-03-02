@@ -5,28 +5,23 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 /**
- * Modelo que representa la tabla de las redes sociales de la empresa.
+ * Modelo que representa la tabla de roles de los usuarios.
  */
-class SocialNetworkModel extends Model
+class RoleModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'socialnetworks';
+    protected $table            = 'roles';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $allowedFields    = [
-        'alias',
         'name',
-        'link',
-        'active',
+        'description',
     ];
 
     // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
+    protected $useTimestamps = false;
 
     // Validation
     protected $skipValidation       = true;

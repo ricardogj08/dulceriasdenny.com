@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 
 /**
- * Inicializa la tabla de las redes sociales de la empresa.
+ * Seeder que inicializa la tabla de las redes sociales de la empresa.
  */
 class SocialNetworkSeeder extends Seeder
 {

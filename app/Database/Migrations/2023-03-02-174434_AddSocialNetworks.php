@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Crea la tabla de las redes sociales de la empresa.
+ * Migración que crea la tabla de las redes sociales de la empresa.
  */
 class AddSocialNetworks extends Migration
 {

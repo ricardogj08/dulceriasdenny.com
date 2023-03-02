@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 
 /**
- * Inicializa la tabla de settings.
+ * Seeder que inicializa la tabla de settings.
  */
 class SettingSeeder extends Seeder
 {
