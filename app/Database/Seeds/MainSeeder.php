@@ -12,5 +12,6 @@ class MainSeeder extends Seeder
     public function run()
     {
         $this->call('SettingSeeder');
+        $this->call('SocialNetworkSeeder');
     }
 }
