@@ -17,7 +17,7 @@ class AuthModel extends Model
     protected $useSoftDeletes   = false;
     protected $allowedFields    = [
         'secret',
-        'expires_at'
+        'expires_at',
     ];
 
     // Dates

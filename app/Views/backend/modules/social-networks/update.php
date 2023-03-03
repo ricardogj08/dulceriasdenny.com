@@ -99,7 +99,7 @@
         <?= $this->setData([
             'id'      => 'modal-submit',
             'message' => '¿Deseas guardar los cambios?',
-        ], 'html')->include('backend/components/modal-submit') ?>
+        ])->include('backend/components/modal-submit') ?>
     <?= form_close() ?>
     <!-- Fin del formulario de modificación de la red social -->
 
@@ -108,5 +108,5 @@
         'id'        => 'modal-confirm',
         'routeName' => 'backend.modules.social-networks.index',
         'message'   => '¿Deseas cancelar las modificaciones de la red social?',
-    ], 'html')->include('backend/components/modal-confirm') ?>
+    ])->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>

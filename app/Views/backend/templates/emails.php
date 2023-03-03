@@ -44,7 +44,7 @@ $year = Time::now()->getYear();
             <div class="footer footer-center p-8 text-base-content">
                 <div>
                     <p>
-                        Copyright &copy <?= $year === '2023' ? '2023' : "2023-{$year}" ?>
+                        Copyright &copy <?= esc($year === '2023' ? '2023' : "2023-{$year}") ?>
                         - Todos los derechos reservados por<br>
                         <a href="<?= url_to('website.pages.home') ?>" target="_blank" class="hover:font-medium">
                             <?= esc(setting()->get('App.general', 'company')) ?>

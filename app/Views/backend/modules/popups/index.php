@@ -11,6 +11,15 @@
     >
 <?= $this->endSection() ?>
 
+<?= $this->section('javascript') ?>
+    <!-- Mensaje de notificación -->
+    <?php if (session()->has('toast-success')): ?>
+        <?= $this->setData([
+            'message' => session()->getFlashdata('toast-success'),
+        ])->include('backend/components/toast-success') ?>
+    <?php endif ?>
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
@@ -211,7 +220,7 @@
                                 <?= $this->setData([
                                     'id'      => 'modal-submit',
                                     'message' => '¿Deseas eliminar este Pop Up?',
-                                ], 'html')->include('backend/components/modal-submit') ?>
+                                ])->include('backend/components/modal-submit') ?>
                             <?= form_close() ?>
                             <!-- Fin del formulario para eliminar el Pop Up -->
                         </div>

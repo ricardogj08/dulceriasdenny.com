@@ -138,5 +138,5 @@ public/uploads/posts/covers/*
 !public/uploads/posts/covers/index.html
 public/uploads/posts/attachments/*
 !public/uploads/posts/attachments/index.html
-public/uploads/pop-ups/*
-!public/uploads/pop-ups/index.html
+public/uploads/popups/*
+!public/uploads/popups/index.html

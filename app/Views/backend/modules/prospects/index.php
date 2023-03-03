@@ -250,7 +250,7 @@
                                 <?= $this->setData([
                                     'id'      => 'modal-submit',
                                     'message' => '¿Deseas eliminar este prospecto?',
-                                ], 'html')->include('backend/components/modal-submit') ?>
+                                ])->include('backend/components/modal-submit') ?>
                             <?= form_close() ?>
                             <!-- Fin del formulario para eliminar el prospecto -->
                         </div>

@@ -19,7 +19,7 @@ class PopUpModel extends Model
         'name',
         'image',
         'active',
-        'started_at',
+        'finished_at',
     ];
 
     // Dates

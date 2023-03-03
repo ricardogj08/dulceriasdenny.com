@@ -214,7 +214,7 @@
                                 <?= $this->setData([
                                     'id'      => 'modal-submit-toggle-active',
                                     'message' => '¿Deseas dar de baja este usuario?',
-                                ], 'html')->include('backend/components/modal-submit') ?>
+                                ])->include('backend/components/modal-submit') ?>
                             <?= form_close() ?>
                             <!-- Fin del formulario que alterna el estado de cuenta del usuario -->
 
@@ -240,7 +240,7 @@
                                 <?= $this->setData([
                                     'id'      => 'modal-submit-delete',
                                     'message' => '¿Deseas eliminar este usuario?',
-                                ], 'html')->include('backend/components/modal-submit') ?>
+                                ])->include('backend/components/modal-submit') ?>
                             <?= form_close() ?>
                             <!-- Fin del formulario para eliminar el usuario -->
                         </div>

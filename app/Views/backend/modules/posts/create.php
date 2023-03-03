@@ -170,5 +170,5 @@
         'id'        => 'modal-confirm',
         'routeName' => 'backend.modules.posts.index',
         'message'   => '¿Deseas cancelar el registro del nuevo artículo?',
-    ], 'html')->include('backend/components/modal-confirm') ?>
+    ])->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>

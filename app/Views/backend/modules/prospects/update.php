@@ -229,7 +229,7 @@
         <?= $this->setData([
             'id'      => 'modal-submit',
             'message' => '¿Deseas guardar los cambios?',
-        ], 'html')->include('backend/components/modal-submit') ?>
+        ])->include('backend/components/modal-submit') ?>
     <?= form_close() ?>
     <!-- Fin del formulario de modificación de prospectos -->
 
@@ -238,5 +238,5 @@
         'id'        => 'modal-confirm',
         'routeName' => 'backend.modules.prospects.index',
         'message'   => '¿Deseas cancelar las modificaciones del prospecto?',
-    ], 'html')->include('backend/components/modal-confirm') ?>
+    ])->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>

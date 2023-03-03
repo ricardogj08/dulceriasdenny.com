@@ -178,5 +178,5 @@
         'id'        => 'modal-confirm',
         'routeName' => 'backend.users.index',
         'message'   => '¿Deseas cancelar el registro del nuevo usuario?',
-    ], 'html')->include('backend/components/modal-confirm') ?>
+    ])->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>

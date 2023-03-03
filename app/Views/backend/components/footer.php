@@ -9,7 +9,7 @@ $year = Time::now()->getYear();
 <footer class="footer footer-center p-4 bg-base-300 text-base-content">
   <div>
     <p>
-        Copyright &copy <?= $year === '2023' ? '2023' : "2023-{$year}" ?>
+        Copyright &copy <?= esc($year === '2023' ? '2023' : "2023-{$year}") ?>
         - Todos los derechos reservados por
         <a href="https://genotipo.com/" target="_blank" rel="nofollow" class="hover:font-medium">
             Genotipo&reg;

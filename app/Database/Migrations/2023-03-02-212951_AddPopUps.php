@@ -33,7 +33,7 @@ class AddPopUps extends Migration
                 'unsigned'   => true,
                 'default'    => false,
             ],
-            'started_at' => [
+            'finished_at' => [
                 'type' => 'date',
                 'null' => true,
             ],

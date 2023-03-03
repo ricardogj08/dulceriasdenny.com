@@ -32,7 +32,7 @@
     <div class="divider"></div>
 
     <!-- Formulario de registro del Pop Up -->
-    <?= form_open(url_to('backend.modules.popups.create')) ?>
+    <?= form_open_multipart(url_to('backend.modules.popups.create')) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo del nombre -->
             <div class="form-control w-full">
@@ -46,8 +46,12 @@
                         type="text"
                         name="name"
                         id="name"
+                        required
+                        maxlength="256"
+                        value="<?= set_value('name') ?>"
                         placeholder="Escribe el nombre del Pop Up"
                         class="input input-bordered input-primary w-full"
+                        autofocus
                     >
                     <button type="button" aria-label="Campo del nombre del Pop Up" class="btn btn-primary btn-square">
                         <i class="ri-edit-2-fill text-xl"></i>
@@ -72,6 +76,8 @@
                     type="file"
                     name="image"
                     id="image"
+                    required
+                    accept="image/*"
                     class="file-input file-input-bordered file-input-primary w-full"
                 >
                 <label class="label">
@@ -93,6 +99,8 @@
                     type="date"
                     name="finished_at"
                     id="finished_at"
+                    min="<?= esc($date) ?>"
+                    value="<?= set_value('finished_at') ?>"
                     class="input input-bordered input-secondary w-full"
                 >
                 <label class="label">
@@ -114,7 +122,7 @@
                         name="active"
                         value="active"
                         class="toggle toggle-secondary"
-                        checked
+                        <?= set_checkbox('active', 'active') ?>
                     >
                 </label>
                 <label class="label">
@@ -127,12 +135,14 @@
 
             <!-- Botones de confirmación -->
             <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-3">
+                <!-- Botón de submit -->
                 <input type="submit" value="Guardar" class="btn btn-primary">
 
                 <label for="modal-confirm" class="btn btn-secondary">
                     Cancelar
                 </label>
             </div>
+            <!-- Fin de los botones de confirmación -->
         </div>
     <?= form_close() ?>
     <!-- Fin del formulario de registro del Pop Up -->
@@ -142,5 +152,5 @@
         'id'        => 'modal-confirm',
         'routeName' => 'backend.modules.popups.index',
         'message'   => '¿Deseas cancelar el registro del nuevo Pop Up?',
-    ], 'html')->include('backend/components/modal-confirm') ?>
+    ])->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>
