@@ -1,3 +1,7 @@
+<?php use CodeIgniter\I18n\Time;
+
+?>
+
 <?= $this->extend('backend/templates/dashboard') ?>
 
 <?= $this->section('head') ?>
@@ -78,6 +82,7 @@
                     id="image"
                     required
                     accept="image/*"
+                    value=""
                     class="file-input file-input-bordered file-input-primary w-full"
                 >
                 <label class="label">
@@ -99,7 +104,7 @@
                     type="date"
                     name="finished_at"
                     id="finished_at"
-                    min="<?= esc($date) ?>"
+                    min="<?= esc(Time::parse('+1 day')->toDateString()) ?>"
                     value="<?= set_value('finished_at') ?>"
                     class="input input-bordered input-secondary w-full"
                 >

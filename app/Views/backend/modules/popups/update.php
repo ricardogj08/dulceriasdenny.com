@@ -1,8 +1,12 @@
+<?php use CodeIgniter\I18n\Time;
+
+?>
+
 <?= $this->extend('backend/templates/dashboard') ?>
 
 <?= $this->section('head') ?>
     <title>
-        Modificar | Nombre del Pop Up
+        Modificar | <?= esc($popup['name']) ?>
     </title>
 
     <meta
@@ -15,7 +19,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
             <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
-                Nombre del Pop Up
+                <?= esc($popup['name']) ?>
             </h1>
             <h2 class="text-sm">
                 Modifica o actualiza los datos de publicación del Pop Up.
@@ -32,7 +36,7 @@
     <div class="divider"></div>
 
     <!-- Formulario de modificación del Pop Up -->
-    <?= form_open(url_to('backend.modules.popups.update', 1)) ?>
+    <?= form_open_multipart(url_to('backend.modules.popups.update', $popup['id'])) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo del nombre -->
             <div class="form-control w-full">
@@ -46,7 +50,10 @@
                         type="text"
                         name="name"
                         id="name"
+                        required
+                        maxlength="256"
                         placeholder="Escribe el nombre del Pop Up"
+                        value="<?= esc($popup['name']) ?>"
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo del nombre del Pop Up" class="btn btn-primary btn-square">
@@ -72,6 +79,8 @@
                     type="file"
                     name="image"
                     id="image"
+                    accept="image/*"
+                    value=""
                     class="file-input file-input-bordered file-input-primary w-full"
                 >
                 <label class="label">
@@ -93,6 +102,9 @@
                     type="date"
                     name="finished_at"
                     id="finished_at"
+                    value="<?= esc($popup['finished_at']
+                        ? Time::parse($popup['finished_at'])->toDateString()
+                        : $popup['finished_at']) ?>"
                     class="input input-bordered input-secondary w-full"
                 >
                 <label class="label">
@@ -109,13 +121,12 @@
                     <span class="label-text">
                         Habilitar <span class="italic">(opcional)</span>
                     </span>
-                    <input
-                        type="checkbox"
-                        name="active"
-                        value="active"
-                        class="toggle toggle-secondary"
-                        checked
-                    >
+                    <?= form_checkbox([
+                        'name'    => 'active',
+                        'value'   => 'active',
+                        'class'   => 'toggle toggle-secondary',
+                        'checked' => (bool) $popup['active'],
+                    ]) ?>
                 </label>
                 <label class="label">
                     <span class="label-text-alt text-error">

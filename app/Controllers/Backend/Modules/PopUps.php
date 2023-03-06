@@ -30,9 +30,7 @@ class PopUps extends BaseController
                 ],
             ]
         )) {
-            return view('backend/modules/popups/create', [
-                'date' => Time::parse('+1 day')->toDateString(),
-            ]);
+            return view('backend/modules/popups/create');
         }
 
         $image = $this->request->getFile('image');
@@ -50,9 +48,9 @@ class PopUps extends BaseController
         // Almacena la imagen.
         $image->move($path, $newImageName);
 
-        $popUpModel = model('PopUpModel');
-
         $finished_at = stripAllSpaces($this->request->getPost('finished_at'));
+
+        $popUpModel = model('PopUpModel');
 
         // Registra el nuevo Pop Up.
         $popUpModel->insert([
@@ -217,7 +215,69 @@ class PopUps extends BaseController
             throw PageNotFoundException::forPageNotFound();
         }
 
-        return view('backend/modules/popups/update');
+        // Consulta los datos del Pop Up.
+        $popUpModel = model('PopUpModel');
+
+        // Consulta los datos del Pop Up.
+        $popup = $popUpModel->select('id, name, image, active, finished_at')->find($id);
+
+        // Valida los campos del formulario.
+        if (strtolower($this->request->getMethod()) !== 'post' || ! $this->validate(
+            [
+                'name'        => "required|max_length[256]|is_unique[popups.name,id,{$popup['id']}]",
+                'image'       => 'permit_empty|uploaded[image]|max_size[image,4096]|is_image[image]',
+                'finished_at' => 'permit_empty|valid_date[Y-m-d]',
+                'active'      => 'if_exist|in_list[active]',
+            ],
+            [
+                'finished_at' => [
+                    'date_greater_than_equal_to_now' => lang('Validation.valid_date'),
+                ],
+            ]
+        )) {
+            return view('backend/modules/popups/update', [
+                'popup' => $popup,
+            ]);
+        }
+
+        $image = $this->request->getFile('image');
+
+        $newImageName = $popup['image'];
+
+        // Reemplaza la imagen del Pop Up.
+        if ($image->isValid() && ! $image->hasMoved()) {
+            // Define la ruta de las imágenes.
+            $path = FCPATH . 'uploads/popups/';
+
+            $oldImage = $path . $popup['image'];
+
+            // Elimina la imagen anterior del Pop Up.
+            is_file($oldImage) && unlink($oldImage);
+
+            $newImageName = $image->getRandomName();
+
+            // Almacena la nueva imagen.
+            $image->move($path, $newImageName);
+
+            // Comprime la imagen del Pop Up.
+            ImageCompressor::getInstance()->run($path . $newImageName);
+        }
+
+        $finished_at = stripAllSpaces($this->request->getPost('finished_at'));
+
+        // Actualiza los datos del Pop Up.
+        $popUpModel->update($popup['id'], [
+            'name'        => trimAll($this->request->getPost('name')),
+            'image'       => $newImageName,
+            'finished_at' => $finished_at
+                ? Time::parse($finished_at)->toDateTimeString()
+                : null,
+            'active' => (bool) stripAllSpaces($this->request->getPost('active')),
+        ]);
+
+        return redirect()
+            ->route('backend.modules.popups.index')
+            ->with('toast-success', 'El Pop Up se ha modificado correctamente');
     }
 
     /**
