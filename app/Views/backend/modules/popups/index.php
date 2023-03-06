@@ -207,7 +207,7 @@
                             <?= esc(Time::parse($popup['created_at'])->toDateString()) ?>
                         </td>
                         <td>
-                            <?= esc(word_limiter($popup['name'], 16)) ?>
+                            <?= character_limiter(esc($popup['name']), 32) ?>
                         </td>
                         <td>
                             <a

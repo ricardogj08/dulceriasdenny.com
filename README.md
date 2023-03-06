@@ -77,6 +77,10 @@ Compila Tailwind CSS para el backend:
 
 	npm run tailwindcss-backend
 
+Comprueba y finaliza todos los Pop Ups publicados que cuentan con una fecha de término:
+
+	php spark popups:finish
+
 ## Referencias
 
 * [CodeIgniter4 User Guide](https://codeigniter4.github.io/userguide/)
