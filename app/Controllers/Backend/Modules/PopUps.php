@@ -4,6 +4,7 @@ namespace App\Controllers\Backend\Modules;
 
 use App\Controllers\BaseController;
 use App\Libraries\ImageCompressor;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\I18n\Time;
 use RuntimeException;
 
@@ -208,6 +209,14 @@ class PopUps extends BaseController
      */
     public function update($id = null)
     {
+        // Valida si existe el Pop Up.
+        if (! $this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[popups.id]']
+        )) {
+            throw PageNotFoundException::forPageNotFound();
+        }
+
         return view('backend/modules/popups/update');
     }
 
@@ -218,5 +227,29 @@ class PopUps extends BaseController
      */
     public function delete($id = null)
     {
+        // Valida si existe el Pop Up.
+        if (! $this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[popups.id]']
+        )) {
+            throw PageNotFoundException::forPageNotFound();
+        }
+
+        $popUpModel = model('PopUpModel');
+
+        // Consulta los datos del Pop Up.
+        $popup = $popUpModel->select('id, image')->find($id);
+
+        $path = FCPATH . 'uploads/popups/' . $popup['image'];
+
+        // Elimina la imagen del Pop Up.
+        is_file($path) && unlink($path);
+
+        // Elimina el registro del Pop Up.
+        $popUpModel->delete($popup['id']);
+
+        return redirect()
+            ->route('backend.modules.popups.index')
+            ->with('toast-success', 'El Pop Up se ha eliminado correctamente');
     }
 }
