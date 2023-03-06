@@ -159,7 +159,7 @@ $routes->group('backend', static function ($routes) {
         });
 
         // Definición de rutas del módulo de Pop-Ups.
-        $routes->group('pop-ups', static function ($routes) {
+        $routes->group('popups', static function ($routes) {
             $routes->get('nuevo', 'Backend\Modules\PopUps::create', ['as' => 'backend.modules.popups.create']);
             $routes->post('nuevo', 'Backend\Modules\PopUps::create', ['as' => 'backend.modules.popups.create']);
             $routes->get('', 'Backend\Modules\PopUps::index', ['as' => 'backend.modules.popups.index']);

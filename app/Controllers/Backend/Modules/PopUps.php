@@ -49,16 +49,18 @@ class PopUps extends BaseController
         // Almacena la imagen.
         $image->move($path, $newImageName);
 
-        $finished_at = stripAllSpaces($this->request->getPost('finished_at'));
-
         $popUpModel = model('PopUpModel');
+
+        $finished_at = stripAllSpaces($this->request->getPost('finished_at'));
 
         // Registra el nuevo Pop Up.
         $popUpModel->insert([
             'name'        => trimAll($this->request->getPost('name')),
             'image'       => $newImageName,
-            'finished_at' => $finished_at ?: null,
-            'active'      => (bool) stripAllSpaces($this->request->getPost('active')),
+            'finished_at' => $finished_at
+                ? Time::parse($finished_at)->toDateTimeString()
+                : null,
+            'active' => (bool) stripAllSpaces($this->request->getPost('active')),
         ]);
 
         // Comprime la imagen del Pop Up.
@@ -74,7 +76,128 @@ class PopUps extends BaseController
      */
     public function index()
     {
-        return view('backend/modules/popups/index');
+        // Define los campos de ordenamiento de resultados.
+        $sortByFields = [
+            'name'        => 'Nombre',
+            'created_at'  => 'Fecha de registro',
+            'finished_at' => 'Fecha de término',
+        ];
+
+        $sortByList = implode(',', array_keys($sortByFields));
+
+        // Define los modos de ordenamiento de resultados.
+        $sortOrderFields = [
+            'asc'  => 'Ascendente',
+            'desc' => 'Descendente',
+        ];
+
+        $sortOrderList = implode(',', array_keys($sortOrderFields));
+
+        // Define los modos de filtrado de Pop Ups habilitados.
+        $activeFilterFields = [
+            'true'  => 'Habilitados',
+            'false' => 'Deshabilitados',
+        ];
+
+        $activeFilterList = implode(',', array_keys($activeFilterFields));
+
+        // Valida los parámetros de búsqueda y consulta de los resultados.
+        if (! $this->validate([
+            'q'         => 'if_exist|max_length[256]',
+            'sortBy'    => "permit_empty|in_list[{$sortByList}]",
+            'sortOrder' => "permit_empty|in_list[{$sortOrderList}]",
+            'active'    => "permit_empty|in_list[{$activeFilterList}]",
+            'dateFrom'  => 'permit_empty|valid_date[Y-m-d]',
+            'dateTo'    => 'permit_empty|valid_date[Y-m-d]',
+        ])) {
+            return redirect()
+                ->route('backend.modules.popups.index')
+                ->withInput();
+        }
+
+        // Obtiene el patrón de búsqueda (por defecto: '').
+        $queryParam = trimAll($this->request->getGet('q'));
+
+        // Obtiene el campo de ordenamiento (por defecto: 'created_at').
+        $sortByParam = stripAllSpaces($this->request->getGet('sortBy') ?: 'created_at');
+
+        // Obtiene el campo del modo de ordenamiento (por defecto: 'desc');
+        $sortOrderParam = stripAllSpaces($this->request->getGet('sortOrder') ?: 'desc');
+
+        // Obtiene el campo de filtrado de Pop Ups habilitados (por defecto: '').
+        $activeFilterParam = stripAllSpaces($this->request->getGet('active'));
+
+        // Obtiene el campo de filtrado por fecha desde (por defecto: '').
+        $dateFromParam = stripAllSpaces($this->request->getGet('dateFrom'));
+
+        // Obtiene el campo de filtrado por fecha hasta (por defecto: '').
+        $dateToParam = stripAllSpaces($this->request->getGet('dateTo'));
+
+        $popUpModel = model('PopUpModel');
+
+        // Define los campos a seleccionar.
+        $builder = $popUpModel->select('id, name, image, active, finished_at, created_at');
+
+        // Filtra los resultados por habilitados.
+        if ($activeFilterParam) {
+            $builder->where('active', $activeFilterParam === 'true');
+        }
+
+        /**
+         * Si el filtro 'finished_at' está presente
+         * oculta los resultados que no tienen fecha de término.
+         */
+        if ($sortByParam === 'finished_at') {
+            $builder->where('finished_at !=', null);
+        }
+
+        // Filtra los resultados por fecha desde.
+        if ($dateFromParam) {
+            $dateFrom = Time::parse($dateFromParam)->toDateTimeString();
+
+            if ($sortByParam === 'finished_at') {
+                $builder->where('finished_at >=', $dateFrom);
+            } else {
+                $builder->where('created_at >=', $dateFrom);
+            }
+        }
+
+        // Filtra los resultados por fecha hasta.
+        if ($dateToParam) {
+            $dateTo = Time::parse('+1 day ' . $dateToParam)->toDateTimeString();
+
+            if ($sortByParam === 'finished_at') {
+                $builder->where('finished_at <', $dateTo);
+            } else {
+                $builder->where('created_at <', $dateTo);
+            }
+        }
+
+        /**
+         * Consulta todos los Pop Ups registrados
+         * que coinciden con el patrón de búsqueda
+         * con paginación.
+         */
+        $popups = $builder
+            ->like('name', $queryParam)
+            ->orderBy($sortByParam, $sortOrderParam)
+            ->paginate(8);
+
+        $activeFilterFields[''] = 'Todos';
+
+        return view('backend/modules/popups/index', [
+            'queryParam'         => $queryParam,
+            'sortByFields'       => $sortByFields,
+            'sortByParam'        => $sortByParam,
+            'sortOrderFields'    => $sortOrderFields,
+            'sortOrderParam'     => $sortOrderParam,
+            'activeFilterFields' => $activeFilterFields,
+            'activeFilterParam'  => $activeFilterParam,
+            'dateFromParam'      => $dateFromParam,
+            'dateToParam'        => $dateToParam,
+            'popups'             => $popups,
+            'pager'              => $popUpModel->pager,
+        ]);
     }
 
     /**

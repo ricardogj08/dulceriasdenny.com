@@ -1,3 +1,7 @@
+<?php use CodeIgniter\I18n\Time;
+
+?>
+
 <?= $this->extend('backend/templates/dashboard') ?>
 
 <?= $this->section('head') ?>
@@ -18,6 +22,7 @@
             'message' => session()->getFlashdata('toast-success'),
         ])->include('backend/components/toast-success') ?>
     <?php endif ?>
+    <!-- Fin del mensaje de notificación -->
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -43,7 +48,12 @@
 
     <div class="divider"></div>
 
-    <div class="pb-6">
+    <div class="pb-6 flex flex-col gap-4">
+        <!-- Mensajes de errores de validación -->
+        <div class="text-error text-sm">
+            <?= validation_list_errors() ?>
+        </div>
+
         <?= form_open(url_to('backend.modules.popups.index'), ['method' => 'get']) ?>
             <div class="flex flex-col lg:flex-row items-end lg:items-center justify-between gap-4">
                 <!-- Campo de búsqueda -->
@@ -53,7 +63,7 @@
                             type="text"
                             name="q"
                             placeholder="Buscar..."
-                            value=""
+                            value="<?= esc($queryParam) ?>"
                             class="input input-bordered w-full"
                         >
 
@@ -88,10 +98,10 @@
                         <div class="form-control w-full">
                             <label for="sortBy" class="label">
                                 <span class="label-text">
-                                    Campo de ordenamiento:
+                                    Ordenar por:
                                 </span>
                             </label>
-                            <?= form_dropdown('sortBy', [], '', [
+                            <?= form_dropdown('sortBy', $sortByFields, $sortByParam, [
                                 'id'    => 'sortBy',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -105,7 +115,7 @@
                                     Modo de ordenamiento:
                                 </span>
                             </label>
-                            <?= form_dropdown('sortOrder', [], '', [
+                            <?= form_dropdown('sortOrder', $sortOrderFields, $sortOrderParam, [
                                 'id'    => 'sortOrder',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -116,10 +126,10 @@
                         <div class="form-control w-full">
                             <label for="active" class="label">
                                 <span class="label-text">
-                                    Filtrar por habilitado:
+                                    Filtrar por estado:
                                 </span>
                             </label>
-                            <?= form_dropdown('active', [], '', [
+                            <?= form_dropdown('active', $activeFilterFields, $activeFilterParam, [
                                 'id'    => 'active',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -138,7 +148,7 @@
                                 name="dateFrom"
                                 id="dateFrom"
                                 class="input input-bordered w-full"
-                                value=""
+                                value="<?= esc($dateFromParam) ?>"
                             >
                         </div>
                         <!-- Fin del campo de filtrado por fecha desde -->
@@ -155,7 +165,7 @@
                                 name="dateTo"
                                 id="dateTo"
                                 class="input input-bordered w-full"
-                                value=""
+                                value="<?= esc($dateToParam) ?>"
                             >
                         </div>
                         <!-- Fin del campo de filtrado por fecha hasta -->
@@ -177,57 +187,89 @@
     </div>
 
     <!-- Tabla de Pop Ups -->
-    <div class="overflow-x-auto">
-        <table class="table w-full">
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Nombre</th>
-                    <th>Archivo</th>
-                    <th>Habilitado</th>
-                    <th>Fecha de término</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="hover">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div class="flex gap-2">
-                            <!-- Botón para editar los datos del Pop Up -->
+    <div class="pb-4">
+        <div class="overflow-x-auto">
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nombre</th>
+                        <th>Archivo</th>
+                        <th>Habilitado</th>
+                        <th>Fecha de término</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($popups as $popup): ?>
+                    <tr class="hover">
+                        <td>
+                            <?= esc(Time::parse($popup['created_at'])->toDateString()) ?>
+                        </td>
+                        <td>
+                            <?= esc(word_limiter($popup['name'], 16)) ?>
+                        </td>
+                        <td>
                             <a
-                                href="<?= url_to('backend.modules.popups.update', 1) ?>"
-                                aria-label="Botón para editar los datos del Pop Up"
-                                class="btn btn-square btn-info btn-outline btn-sm"
+                                href="<?= base_url(['uploads/popups/', $popup['image']]) ?>"
+                                target="_blank"
                             >
-                                <i class="ri-pencil-line text-xl"></i>
-                            </a>
-                            <!-- Fin del botón para editar los datos del Pop Up -->
-
-                            <!-- Formulario para eliminar el Pop Up -->
-                            <?= form_open(url_to('backend.modules.popups.delete', 1)) ?>
-                                <label
-                                    for="modal-submit"
-                                    class="btn btn-square btn-error btn-outline btn-sm"
+                                <img
+                                    src="<?= base_url(['uploads/popups/', $popup['image']]) ?>"
+                                    alt="<?= esc($popup['name']) ?>"
+                                    class="h-12 w-auto object-cover"
                                 >
-                                    <i class="ri-delete-bin-5-line text-xl"></i>
-                                </label>
+                            </a>
+                        </td>
+                        <td>
+                            <div class="badge <?= $popup['active'] ? 'badge-success' : 'badge-error' ?>">
+                                <?= esc($popup['active'] ? 'Sí' : 'No') ?>
+                            </div>
+                        </td>
+                        <td>
+                            <?php if ($popup['finished_at']): ?>
+                                <?= esc(Time::parse($popup['finished_at'])->toDateString()) ?>
+                            <?php endif ?>
+                        </td>
+                        <td>
+                            <div class="flex gap-2">
+                                <!-- Botón para editar los datos del Pop Up -->
+                                <a
+                                    href="<?= url_to('backend.modules.popups.update', $popup['id']) ?>"
+                                    aria-label="Botón para editar los datos del Pop Up"
+                                    class="btn btn-square btn-info btn-outline btn-sm"
+                                >
+                                    <i class="ri-pencil-line text-xl"></i>
+                                </a>
+                                <!-- Fin del botón para editar los datos del Pop Up -->
 
-                                <?= $this->setData([
-                                    'id'      => 'modal-submit',
-                                    'message' => '¿Deseas eliminar este Pop Up?',
-                                ])->include('backend/components/modal-submit') ?>
-                            <?= form_close() ?>
-                            <!-- Fin del formulario para eliminar el Pop Up -->
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                <!-- Formulario para eliminar el Pop Up -->
+                                <?= form_open(url_to('backend.modules.popups.delete', $popup['id'])) ?>
+                                    <label
+                                        for="modal-submit-<?= esc($popup['id']) ?>"
+                                        class="btn btn-square btn-error btn-outline btn-sm"
+                                    >
+                                        <i class="ri-delete-bin-5-line text-xl"></i>
+                                    </label>
+
+                                    <?= $this->setData([
+                                        'id'      => "modal-submit-{$popup['id']}",
+                                        'message' => '¿Deseas eliminar este Pop Up?',
+                                    ])->include('backend/components/modal-submit') ?>
+                                <?= form_close() ?>
+                                <!-- Fin del formulario para eliminar el Pop Up -->
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- Fin de la tabla de Pop Ups -->
+
+    <!-- Paginación -->
+    <div class="flex justify-center lg:justify-end">
+        <?= $pager->links('default', 'backend') ?>
+    </div>
 <?= $this->endSection() ?>

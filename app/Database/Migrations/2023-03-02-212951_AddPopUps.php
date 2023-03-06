@@ -34,7 +34,7 @@ class AddPopUps extends Migration
                 'default'    => false,
             ],
             'finished_at' => [
-                'type' => 'date',
+                'type' => 'datetime',
                 'null' => true,
             ],
             'created_at' => [
