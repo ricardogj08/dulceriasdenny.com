@@ -11,6 +11,16 @@
     >
 <?= $this->endSection() ?>
 
+<?= $this->section('javascript') ?>
+    <!-- Mensaje de notificación -->
+    <?php if (session()->has('toast-success')): ?>
+        <?= $this->setData([
+            'message' => session()->getFlashdata('toast-success'),
+        ])->include('backend/components/toast-success') ?>
+    <?php endif ?>
+    <!-- Fin del mensaje de notificación -->
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 
     <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
@@ -142,18 +152,21 @@
                     <?php foreach ($socialNetworks as $socialNetwork): ?>
                         <tr class="hover">
                             <th>
-                                <?php if ($socialNetwork['active'] && $socialNetwork['link']): ?>
+                                <?php if ($socialNetwork['link']): ?>
                                     <a
-                                        href="<?= esc($socialNetwork['link']) ?>"
+                                        href="<?= esc($socialNetwork['link'], 'attr') ?>"
                                         target="_blank"
                                         rel="nofollow noreferrer noopener"
+                                        class="group"
                                     >
                                 <?php endif ?>
                                         <div class="flex gap-4 items-center">
                                             <i class="text-2xl <?= esc($socialNetwork['icon']) ?>"></i>
-                                            <?= esc($socialNetwork['name']) ?>
+                                            <span class="group-hover:link">
+                                                <?= esc($socialNetwork['name']) ?>
+                                            </span>
                                         </div>
-                                <?php if ($socialNetwork['active'] && $socialNetwork['link']): ?>
+                                <?php if ($socialNetwork['link']): ?>
                                     </a>
                                 <?php endif ?>
                             </th>

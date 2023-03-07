@@ -22,62 +22,62 @@ class SocialNetworkSeeder extends Seeder
             [
                 'name'  => 'Instagram',
                 'alias' => 'instagram',
-                'icon'  => 'ri-instagram-fill'
+                'icon'  => 'ri-instagram-fill',
             ],
             [
                 'name'  => 'LinkedIn',
                 'alias' => 'linkedin',
-                'icon'  => 'ri-linkedin-fill'
+                'icon'  => 'ri-linkedin-fill',
             ],
             [
                 'name'  => 'Messenger',
                 'alias' => 'messenger',
-                'icon'  => 'ri-messenger-fill'
+                'icon'  => 'ri-messenger-fill',
             ],
             [
                 'name'  => 'Pinterest',
                 'alias' => 'pinterest',
-                'icon'  => 'ri-pinterest-fill'
+                'icon'  => 'ri-pinterest-fill',
             ],
             [
                 'name'  => 'Skype',
                 'alias' => 'skype',
-                'icon'  => 'ri-skype-fill'
+                'icon'  => 'ri-skype-fill',
             ],
             [
                 'name'  => 'Snapchat',
                 'alias' => 'snapchat',
-                'icon'  => 'ri-snapchat-fill'
+                'icon'  => 'ri-snapchat-fill',
             ],
             [
                 'name'  => 'Telegram',
                 'alias' => 'telegram',
-                'icon'  => 'ri-telegram-fill'
+                'icon'  => 'ri-telegram-fill',
             ],
             [
                 'name'  => 'TikTok',
                 'alias' => 'tiktok',
-                'icon'  => 'ri-chat-3-fill'
+                'icon'  => 'ri-chat-3-fill',
             ],
             [
                 'name'  => 'TripAdvisor',
                 'alias' => 'tripadvisor',
-                'icon'  => 'ri-chat-3-fill'
+                'icon'  => 'ri-chat-3-fill',
             ],
             [
                 'name'  => 'Twitter',
                 'alias' => 'twitter',
-                'icon'  => 'ri-twitter-fill'
+                'icon'  => 'ri-twitter-fill',
             ],
             [
                 'name'  => 'WhatsApp',
                 'alias' => 'whatsapp',
-                'icon'  => 'ri-whatsapp-fill'
+                'icon'  => 'ri-whatsapp-fill',
             ],
             [
                 'name'  => 'YouTube',
                 'alias' => 'youtube',
-                'icon'  => 'ri-youtube-fill'
+                'icon'  => 'ri-youtube-fill',
             ],
         ]);
     }

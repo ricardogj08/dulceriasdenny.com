@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend\Modules;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class SocialNetworks extends BaseController
 {
@@ -102,6 +103,37 @@ class SocialNetworks extends BaseController
      */
     public function update($id = null)
     {
-        return view('backend/modules/socialNetworks/update');
+        // Valida si existe la red social.
+        if (! $this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[socialnetworks.id]']
+        )) {
+            throw PageNotFoundException::forPageNotFound();
+        }
+
+        $socialNetworkModel = model('SocialNetworkModel');
+
+        // Consulta los datos de la red social.
+        $socialNetwork = $socialNetworkModel->select('id, name, link, active')->find($id);
+
+        // Valida los campos del formulario.
+        if (strtolower($this->request->getMethod()) !== 'post' || ! $this->validate([
+            'link'   => 'permit_empty|valid_url_strict|max_length[2048]',
+            'active' => 'if_exist|in_list[active]',
+        ])) {
+            return view('backend/modules/socialNetworks/update', [
+                'socialNetwork' => $socialNetwork,
+            ]);
+        }
+
+        // Actualiza los datos de la red social.
+        $socialNetworkModel->update($socialNetwork['id'], [
+            'link'   => stripAllSpaces($this->request->getPost('link')) ?: null,
+            'active' => (bool) stripAllSpaces($this->request->getPost('active')),
+        ]);
+
+        return redirect()
+            ->route('backend.modules.socialNetworks.index')
+            ->with('toast-success', 'La red social se ha modificado correctamente');
     }
 }

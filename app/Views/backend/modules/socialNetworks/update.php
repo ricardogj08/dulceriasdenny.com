@@ -2,7 +2,7 @@
 
 <?= $this->section('head') ?>
     <title>
-        Modificar | Facebook
+        Modificar | <?= esc($socialNetwork['name']) ?>
     </title>
 
     <meta
@@ -15,7 +15,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
             <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
-                Facebook
+                <?= esc($socialNetwork['name']) ?>
             </h1>
             <h2 class="text-sm">
                 Modifica o actualiza los datos de la red social.
@@ -32,7 +32,7 @@
     <div class="divider"></div>
 
     <!-- Formulario de modificación de la red social -->
-    <?= form_open(url_to('backend.modules.socialNetworks.update', 1)) ?>
+    <?= form_open(url_to('backend.modules.socialNetworks.update', $socialNetwork['id'])) ?>
         <div class="flex flex-col gap-y-2">
             <div class="form-control w-full">
                 <!-- Campo del link -->
@@ -46,7 +46,9 @@
                         type="url"
                         name="link"
                         id="link"
+                        maxlength="2048"
                         placeholder="Escribe el link de la red social"
+                        value="<?= esc($socialNetwork['link'], 'attr') ?>"
                         class="input input-bordered input-secondary w-full"
                     >
                     <button type="button" aria-label="Campo del link de la red social" class="btn btn-secondary btn-square">
@@ -67,13 +69,12 @@
                     <span class="label-text">
                         Habilitar <span class="italic">(opcional)</span>
                     </span>
-                    <input
-                        type="checkbox"
-                        name="active"
-                        value="active"
-                        class="toggle toggle-secondary"
-                        checked
-                    >
+                    <?= form_checkbox([
+                        'name'    => 'active',
+                        'value'   => 'active',
+                        'class'   => 'toggle toggle-secondary',
+                        'checked' => (bool) $socialNetwork['active'],
+                    ]) ?>
                 </label>
                 <label class="label">
                     <span class="label-text-alt text-error">
