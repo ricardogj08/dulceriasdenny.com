@@ -12,7 +12,7 @@
         <!-- Fondo de inicio de sesión -->
         <figure class="h-24 lg:h-auto">
             <img
-                src="https://picsum.photos/1920/1080?random=1"
+                src="<?= base_url(['uploads/settings/', setting()->get('App.general', 'background')]) ?>"
                 alt="Fondo de inicio de sesión"
                 class="w-full h-full object-cover"
             >
@@ -25,9 +25,9 @@
                 <!-- Logo de la empresa -->
                 <figure class="pb-8">
                     <img
-                        src="https://picsum.photos/1920/1080?random=2"
-                        alt="Logo"
-                        class="h-12 w-auto object-cover"
+                        src="<?= base_url(['uploads/settings/', setting()->get('App.general', 'logo')]) ?>"
+                        alt="Logo de <?= esc(setting()->get('App.general', 'company')) ?>"
+                        class="h-12 lg:h-16 w-auto object-cover"
                     >
                 </figure>
                 <!-- Fin del logo de la empresa -->

@@ -11,6 +11,16 @@
     >
 <?= $this->endSection() ?>
 
+<?= $this->section('javascript') ?>
+    <!-- Mensaje de notificación -->
+    <?php if (session()->has('toast-success')): ?>
+        <?= $this->setData([
+            'message' => session()->getFlashdata('toast-success'),
+        ])->include('backend/components/toast-success') ?>
+    <?php endif ?>
+    <!-- Fin del mensaje de notificación -->
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
@@ -51,27 +61,45 @@
                 <tbody>
                     <tr>
                         <th>Empresa:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.general', 'company')) ?></td>
                     </tr>
                     <tr>
                         <th>Teléfonos:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.general', 'phones')) ?></td>
                     </tr>
                     <tr>
                         <th>Tema:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.general', 'theme')) ?></td>
                     </tr>
                     <tr>
                         <th>Favicon:</th>
-                        <td></td>
+                        <td>
+                            <img
+                                src="<?= base_url(['uploads/settings/', setting()->get('App.general', 'favicon')]) ?>"
+                                alt="Favicon de <?= esc(setting()->get('App.general', 'company')) ?>"
+                                class="h-8 lg:h-12 w-auto object-cover"
+                            >
+                        </td>
                     </tr>
                     <tr>
                         <th>Fondo:</th>
-                        <td></td>
+                        <td>
+                            <img
+                                src="<?= base_url(['uploads/settings/', setting()->get('App.general', 'background')]) ?>"
+                                alt="Fondo de inicio de sesión"
+                                class="h-8 lg:h-12 w-auto object-cover"
+                            >
+                        </td>
                     </tr>
                     <tr>
                         <th>Logo:</th>
-                        <td></td>
+                        <td>
+                            <img
+                                src="<?= base_url(['uploads/settings/', setting()->get('App.general', 'logo')]) ?>"
+                                alt="Logo de <?= esc(setting()->get('App.general', 'company')) ?>"
+                                class="h-8 lg:h-12 w-auto object-cover"
+                            >
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -98,19 +126,19 @@
                 <tbody>
                     <tr>
                         <th>Remitente:</th>
-                        <td></td>
+                        <td><?= esc(config('Email')->SMTPUser) ?></td>
                     </tr>
                     <tr>
                         <th>Destinatarios:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.emails', 'to')) ?></td>
                     </tr>
                     <tr>
                         <th>Destinatarios CC:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.emails', 'cc')) ?></td>
                     </tr>
                     <tr>
                         <th>Destinatarios BCC:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.emails', 'bcc')) ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -137,19 +165,29 @@
                 <tbody>
                     <tr>
                         <th>WhatsApp:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.apps', 'whatsapp')) ?></td>
                     </tr>
                     <tr>
                         <th>Google Tag Manager:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.apps', 'google:tagManager')) ?></td>
                     </tr>
                     <tr>
                         <th>Google Search Console:</th>
-                        <td></td>
+                        <td>
+                            <?php if (setting()->get('App.apps', 'google:searchConsole')): ?>
+                                <a
+                                    href="<?= base_url(setting()->get('App.apps', 'google:searchConsole')) ?>"
+                                    target="_blank"
+                                    class="link link-secondary"
+                                >
+                                    <?= esc(setting()->get('App.apps', 'google:searchConsole')) ?>
+                                </a>
+                            <?php endif ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Google reCAPTCHA:</th>
-                        <td></td>
+                        <td><?= esc(setting()->get('App.apps', 'google:recaptcha')) ?></td>
                     </tr>
                 </tbody>
             </table>

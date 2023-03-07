@@ -28,9 +28,9 @@ $year = Time::now()->getYear();
                 <div class="pb-8">
                     <a href="<?= url_to('website.pages.home') ?>" target="_blank">
                         <img
-                            src="https://picsum.photos/1920/1080"
-                            alt="Logo"
-                            class="h-12 w-auto object-cover"
+                            src="<?= base_url(['uploads/settings/', setting()->get('App.general', 'logo')]) ?>"
+                            alt="Logo de <?= esc(setting()->get('App.general', 'company')) ?>"
+                            class="h-12 lg:h-16 w-auto object-cover"
                         >
                     </a>
                 </div>
