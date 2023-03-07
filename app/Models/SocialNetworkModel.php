@@ -20,6 +20,7 @@ class SocialNetworkModel extends Model
         'name',
         'link',
         'active',
+        'icon',
     ];
 
     // Dates

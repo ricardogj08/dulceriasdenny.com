@@ -153,9 +153,9 @@ $routes->group('backend', static function ($routes) {
 
         // Definición de rutas del módulo de redes sociales.
         $routes->group('redes-sociales', static function ($routes) {
-            $routes->get('', 'Backend\Modules\SocialNetworks::index', ['as' => 'backend.modules.social-networks.index']);
-            $routes->get('modificar/(:num)', 'Backend\Modules\SocialNetworks::update/$1', ['as' => 'backend.modules.social-networks.update']);
-            $routes->post('modificar/(:num)', 'Backend\Modules\SocialNetworks::update/$1', ['as' => 'backend.modules.social-networks.update']);
+            $routes->get('', 'Backend\Modules\SocialNetworks::index', ['as' => 'backend.modules.socialNetworks.index']);
+            $routes->get('modificar/(:num)', 'Backend\Modules\SocialNetworks::update/$1', ['as' => 'backend.modules.socialNetworks.update']);
+            $routes->post('modificar/(:num)', 'Backend\Modules\SocialNetworks::update/$1', ['as' => 'backend.modules.socialNetworks.update']);
         });
 
         // Definición de rutas del módulo de Pop-Ups.

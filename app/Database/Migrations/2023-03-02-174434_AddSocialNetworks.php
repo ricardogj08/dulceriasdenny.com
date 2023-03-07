@@ -37,6 +37,10 @@ class AddSocialNetworks extends Migration
                 'unsigned'   => true,
                 'default'    => false,
             ],
+            'icon' => [
+                'type'       => 'varchar',
+                'constraint' => 64,
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => true,

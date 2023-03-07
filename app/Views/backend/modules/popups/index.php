@@ -62,6 +62,7 @@
                         <input
                             type="text"
                             name="q"
+                            maxlength="256"
                             placeholder="Buscar..."
                             value="<?= esc($queryParam) ?>"
                             class="input input-bordered w-full"
@@ -213,11 +214,12 @@
                             <a
                                 href="<?= base_url(['uploads/popups/', $popup['image']]) ?>"
                                 target="_blank"
+                                class="group"
                             >
                                 <img
                                     src="<?= base_url(['uploads/popups/', $popup['image']]) ?>"
                                     alt="<?= esc($popup['name']) ?>"
-                                    class="h-12 w-auto object-cover"
+                                    class="h-12 w-auto object-cover group-hover:brightness-75 transition"
                                 >
                             </a>
                         </td>

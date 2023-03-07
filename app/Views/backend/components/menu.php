@@ -44,10 +44,10 @@
 
     <li>
         <a
-            href="<?= url_to('backend.modules.social-networks.index') ?>"
-            class="<?= url_is_child('backend.modules.social-networks.index') ? 'active' : '' ?>"
+            href="<?= url_to('backend.modules.socialNetworks.index') ?>"
+            class="<?= url_is_child('backend.modules.socialNetworks.index') ? 'active' : '' ?>"
         >
-            <i class="ri-message-3-fill text-2xl"></i>
+            <i class="ri-chat-3-fill text-2xl"></i>
             Redes sociales
         </a>
     </li>

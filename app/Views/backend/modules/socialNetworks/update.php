@@ -32,7 +32,7 @@
     <div class="divider"></div>
 
     <!-- Formulario de modificación de la red social -->
-    <?= form_open(url_to('backend.modules.social-networks.update', 1)) ?>
+    <?= form_open(url_to('backend.modules.socialNetworks.update', 1)) ?>
         <div class="flex flex-col gap-y-2">
             <div class="form-control w-full">
                 <!-- Campo del link -->
@@ -106,7 +106,7 @@
     <!-- Modal de confirmación -->
     <?= $this->setData([
         'id'        => 'modal-confirm',
-        'routeName' => 'backend.modules.social-networks.index',
+        'routeName' => 'backend.modules.socialNetworks.index',
         'message'   => '¿Deseas cancelar las modificaciones de la red social?',
     ])->include('backend/components/modal-confirm') ?>
 <?= $this->endSection() ?>

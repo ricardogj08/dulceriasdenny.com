@@ -22,8 +22,13 @@
 
     <div class="divider"></div>
 
-    <div class="pb-6">
-        <?= form_open(url_to('backend.modules.social-networks.index'), ['method' => 'get']) ?>
+    <div class="pb-6 flex flex-col gap-4">
+        <!-- Mensajes de errores de validación -->
+        <div class="text-error text-sm">
+            <?= validation_list_errors() ?>
+        </div>
+
+        <?= form_open(url_to('backend.modules.socialNetworks.index'), ['method' => 'get']) ?>
             <div class="flex flex-col lg:flex-row items-end lg:items-center justify-between gap-4">
                 <!-- Campo de búsqueda -->
                 <div class="form-control w-full">
@@ -31,8 +36,9 @@
                         <input
                             type="text"
                             name="q"
+                            maxlength="64"
                             placeholder="Buscar..."
-                            value=""
+                            value="<?= esc($queryParam) ?>"
                             class="input input-bordered w-full"
                         >
 
@@ -67,10 +73,10 @@
                         <div class="form-control w-full">
                             <label for="sortBy" class="label">
                                 <span class="label-text">
-                                    Campo de ordenamiento:
+                                    Ordenar por:
                                 </span>
                             </label>
-                            <?= form_dropdown('sortBy', [], '', [
+                            <?= form_dropdown('sortBy', $sortByFields, $sortByParam, [
                                 'id'    => 'sortBy',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -84,7 +90,7 @@
                                     Modo de ordenamiento:
                                 </span>
                             </label>
-                            <?= form_dropdown('sortOrder', [], '', [
+                            <?= form_dropdown('sortOrder', $sortOrderFields, $sortOrderParam, [
                                 'id'    => 'sortOrder',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -95,10 +101,10 @@
                         <div class="form-control w-full">
                             <label for="active" class="label">
                                 <span class="label-text">
-                                    Filtrar por habilitado:
+                                    Filtrar por estado:
                                 </span>
                             </label>
-                            <?= form_dropdown('active', [], '', [
+                            <?= form_dropdown('active', $activeFilterFields, $activeFilterParam, [
                                 'id'    => 'active',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -111,7 +117,7 @@
                         <input type="submit" value="Aplicar" class="btn btn-primary">
 
                         <!-- Botón para restaurar los filtros -->
-                        <a href="<?= url_to('backend.modules.social-networks.index') ?>" class="btn btn-secondary">
+                        <a href="<?= url_to('backend.modules.socialNetworks.index') ?>" class="btn btn-secondary">
                             Restaurar
                         </a>
                     </div>
@@ -122,33 +128,61 @@
     </div>
 
     <!-- Tabla de redes sociales -->
-    <div class="overflow-x-auto">
-        <table class="table w-full">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Habilitado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="hover">
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <!-- Botón para editar los datos de la red social -->
-                        <a
-                            href="<?= url_to('backend.modules.social-networks.update', 1) ?>"
-                            aria-label="Botón para editar la red social"
-                            class="btn btn-square btn-info btn-outline btn-sm"
-                        >
-                            <i class="ri-pencil-line text-xl"></i>
-                        </a>
-                        <!-- Fin del botón para editar los datos de la red social -->
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="pb-4">
+        <div class="overflow-x-auto">
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Habilitado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($socialNetworks as $socialNetwork): ?>
+                        <tr class="hover">
+                            <th>
+                                <?php if ($socialNetwork['active'] && $socialNetwork['link']): ?>
+                                    <a
+                                        href="<?= esc($socialNetwork['link']) ?>"
+                                        target="_blank"
+                                        rel="nofollow noreferrer noopener"
+                                    >
+                                <?php endif ?>
+                                        <div class="flex gap-4 items-center">
+                                            <i class="text-2xl <?= esc($socialNetwork['icon']) ?>"></i>
+                                            <?= esc($socialNetwork['name']) ?>
+                                        </div>
+                                <?php if ($socialNetwork['active'] && $socialNetwork['link']): ?>
+                                    </a>
+                                <?php endif ?>
+                            </th>
+                            <td>
+                                <div class="badge <?= $socialNetwork['active'] ? 'badge-success' : 'badge-error' ?>">
+                                    <?= esc($socialNetwork['active'] ? 'Sí' : 'No') ?>
+                                </div>
+                            </td>
+                            <td>
+                                <!-- Botón para editar los datos de la red social -->
+                                <a
+                                    href="<?= url_to('backend.modules.socialNetworks.update', $socialNetwork['id']) ?>"
+                                    aria-label="Botón para editar la red social"
+                                    class="btn btn-square btn-info btn-outline btn-sm"
+                                >
+                                    <i class="ri-pencil-line text-xl"></i>
+                                </a>
+                                <!-- Fin del botón para editar los datos de la red social -->
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- Fin de la tabla de redes sociales -->
+
+    <!-- Paginación -->
+    <div class="flex justify-center lg:justify-end">
+        <?= $pager->links('default', 'backend') ?>
+    </div>
 <?= $this->endSection() ?>
