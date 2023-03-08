@@ -2,6 +2,8 @@
 
 Dulcerías Denny
 
+* [Notion](https://ricardogj08.notion.site/587b0a12194246e4aff50a49d73dee2b?v=a982b01797dc41ea8d744e2f5a702358)
+
 ## Dependencias
 
 * [PHP >= 7.4](https://www.php.net/)

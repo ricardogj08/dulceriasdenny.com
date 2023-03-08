@@ -2,6 +2,7 @@
 
 namespace App\Libraries;
 
+use CodeIgniter\Files\File;
 use RuntimeException;
 use Tinify;
 
@@ -45,7 +46,11 @@ class ImageCompressor
     public static function run(string $source)
     {
         if (ENVIRONMENT === 'production') {
-            Tinify\fromFile($source)->toFile($source);
+            $ext = (new File($source))->guessExtension();
+
+            if ($ext && $ext !== 'svg') {
+                Tinify\fromFile($source)->toFile($source);
+            }
         }
     }
 }

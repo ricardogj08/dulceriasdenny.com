@@ -15,3 +15,11 @@ function stripAllSpaces(?string $str)
 {
     return preg_replace('/\s+/', '', $str ?? '');
 }
+
+/**
+ * Convierte un string a minúsculas.
+ */
+function lowerCase(?string $str)
+{
+    return mb_strtolower($str ?? '');
+}

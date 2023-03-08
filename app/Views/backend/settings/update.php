@@ -32,7 +32,7 @@
     <div class="divider"></div>
 
     <!-- Formulario de modificación del sitio web -->
-    <?= form_open(url_to('backend.settings.update')) ?>
+    <?= form_open_multipart(url_to('backend.settings.update')) ?>
         <fieldset>
             <legend class="text-xl font-bold underline decoration-wavy decoration-secondary underline-offset-4 mb-4">
                 General
@@ -50,7 +50,10 @@
                         type="text"
                         name="company"
                         id="company"
+                        required
+                        maxlength="256"
                         placeholder="Escribe el nombre de la empresa"
+                        value="<?= esc(setting()->get('App.general', 'company')) ?>"
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo del nombre de la empresa" class="btn btn-primary btn-square">
@@ -77,7 +80,10 @@
                         type="tel"
                         name="phones"
                         id="phones"
+                        required
+                        maxlength="256"
                         placeholder="Escribe los teléfonos de contacto"
+                        value="<?= esc(setting()->get('App.general', 'phones')) ?>"
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo de los teléfonos de contacto" class="btn btn-primary btn-square">
@@ -99,12 +105,15 @@
             <div class="form-control w-full">
                 <label for="theme" class="label">
                     <span class="label-text">
-                        Tema de colores:
+                        <a href="https://daisyui.com/docs/themes/#" target="_blank" rel="nofollow noreferrer noopener" class="link link-hover">
+                            Tema de colores:
+                        </a>
                     </span>
                 </label>
-                <?= form_dropdown('theme', [], '', [
-                    'id'    => 'theme',
-                    'class' => 'select select-secondary w-full',
+                <?= form_dropdown('theme', $themes, setting()->get('App.general', 'theme'), [
+                    'id'       => 'theme',
+                    'required' => true,
+                    'class'    => 'select select-secondary w-full',
                 ]) ?>
                 <label class="label">
                     <span class="label-text-alt text-error">
@@ -125,6 +134,8 @@
                     type="file"
                     name="favicon"
                     id="favicon"
+                    accept="image/*"
+                    value=""
                     class="file-input file-input-bordered file-input-primary w-full"
                 >
                 <label class="label">
@@ -146,6 +157,8 @@
                     type="file"
                     name="background"
                     id="background"
+                    accept="image/*"
+                    value=""
                     class="file-input file-input-bordered file-input-primary w-full"
                 >
                 <label class="label">
@@ -167,6 +180,8 @@
                     type="file"
                     name="logo"
                     id="logo"
+                    accept="image/*"
+                    value=""
                     class="file-input file-input-bordered file-input-primary w-full"
                 >
                 <label class="label">
@@ -194,10 +209,12 @@
                 </label>
                 <div class="input-group">
                     <input
-                        type="email"
+                        type="text"
                         name="emailsTo"
                         id="emailsTo"
+                        maxlength="256"
                         placeholder="Escribe los emails de destino"
+                        value="<?= esc(setting()->get('App.emails', 'to')) ?>"
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo de los emails de destino" class="btn btn-primary btn-square">
@@ -224,10 +241,12 @@
                 </label>
                 <div class="input-group">
                     <input
-                        type="email"
+                        type="text"
                         name="emailsCC"
                         id="emailsCC"
+                        maxlength="256"
                         placeholder="Escribe los emails con copia"
+                        value="<?= esc(setting()->get('App.emails', 'cc')) ?>"
                         class="input input-bordered input-secondary w-full"
                     >
                     <button type="button" aria-label="Campo de los emails de destino con copia" class="btn btn-secondary btn-square">
@@ -254,10 +273,12 @@
                 </label>
                 <div class="input-group">
                     <input
-                        type="email"
+                        type="text"
                         name="emailsBCC"
                         id="emailsBCC"
+                        maxlength="256"
                         placeholder="Escribe los emails con copia oculta"
+                        value="<?= esc(setting()->get('App.emails', 'bcc')) ?>"
                         class="input input-bordered input-secondary w-full"
                     >
                     <button type="button" aria-label="Campo de los emails de destino con copia oculta" class="btn btn-secondary btn-square">
@@ -295,7 +316,10 @@
                         type="tel"
                         name="whatsapp"
                         id="whatsapp"
+                        maxlength="15"
+                        pattern="[0-9]{0,15}"
                         placeholder="Escribe el número de WhatsApp"
+                        value="<?= esc(setting()->get('App.apps', 'whatsapp')) ?>"
                         class="input input-bordered input-secondary w-full"
                     >
                     <button type="button" aria-label="Campo del número de WhatsApp" class="btn btn-secondary btn-square">
@@ -325,7 +349,9 @@
                         type="text"
                         name="googleTagManager"
                         id="googleTagManager"
+                        maxlength="32"
                         placeholder="Escribe el ID de Google Tag Manager"
+                        value="<?= esc(setting()->get('App.apps', 'google:tagManager')) ?>"
                         class="input input-bordered input-secondary w-full"
                     >
                     <button type="button" aria-label="Campo del ID de Google Tag Manager" class="btn btn-secondary btn-square">
@@ -351,6 +377,8 @@
                     type="file"
                     name="googleSearchConsole"
                     id="googleSearchConsole"
+                    accept=".html"
+                    value=""
                     class="file-input file-input-bordered file-input-primary w-full"
                 >
                 <label class="label">
@@ -364,16 +392,18 @@
                             </li>
                         </ul>
                     </span>
-                    <span class="label-text-alt cursor-pointer inline-flex items-center gap-2">
-                        <i class="ri-delete-bin-5-fill text-2xl text-error"></i>
-                        <input
-                            type="checkbox"
-                            name="deleteGoogleSearchConsole"
-                            aria-label="Botón para eliminar la verificación de Google Search Console"
-                            value="1"
-                            class="checkbox checkbox-error"
-                        >
-                    </span>
+                    <?php if (setting()->get('App.apps', 'google:searchConsole')): ?>
+                        <span class="label-text-alt cursor-pointer inline-flex items-center gap-2">
+                            <i class="ri-delete-bin-5-fill text-2xl text-error"></i>
+                            <input
+                                type="checkbox"
+                                name="deleteGoogleSearchConsole"
+                                aria-label="Botón para eliminar la verificación de Google Search Console"
+                                value="true"
+                                class="checkbox checkbox-error"
+                            >
+                        </span>
+                    <?php endif ?>
                 </label>
             </div>
             <!-- Fin del campo de verificación de Google Search Console -->
@@ -390,7 +420,9 @@
                         type="text"
                         name="googleRecaptcha"
                         id="googleRecaptcha"
+                        maxlength="256"
                         placeholder="Escribe la clave de sitio web de Google reCAPTCHA"
+                        value="<?= esc(setting()->get('App.apps', 'google:recaptcha')) ?>"
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo de la clave de sitio web de Google reCAPTCHA" class="btn btn-primary btn-square">
