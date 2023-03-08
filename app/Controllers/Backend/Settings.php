@@ -42,7 +42,7 @@ class Settings extends BaseController
             'emailsTo'                  => 'required|max_length[256]|valid_emails',
             'emailsCC'                  => 'permit_empty|max_length[256]|valid_emails',
             'emailsBCC'                 => 'permit_empty|max_length[256]|valid_emails',
-            'whatsapp'                  => 'permit_empty|max_length[15]|is_natural',
+            'whatsapp'                  => 'permit_empty|max_length[15]|numeric',
             'googleTagManager'          => 'if_exist|max_length[32]',
             'googleSearchConsole'       => 'permit_empty|uploaded[googleSearchConsole]|max_size[googleSearchConsole,8]|mime_in[googleSearchConsole,text/plain]|ext_in[googleSearchConsole,html]',
             'deleteGoogleSearchConsole' => 'if_exist|in_list[true]',
@@ -85,6 +85,8 @@ class Settings extends BaseController
 
             setting()->set('App.general', $newFaviconName, 'favicon');
 
+            $compress->run($path . $newFaviconName);
+
             unset($favicon, $oldFavicon, $newFaviconName);
         }
 
@@ -103,6 +105,9 @@ class Settings extends BaseController
             $background->move($path, $newBackgroundName);
 
             setting()->set('App.general', $newBackgroundName, 'background');
+
+            // Comprime el nuevo logo.
+            $compress->run($path . $newBackgroundName);
 
             unset($background, $oldBackground, $newBackgroundName);
         }

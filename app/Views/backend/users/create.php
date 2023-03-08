@@ -31,7 +31,7 @@
 
     <div class="divider"></div>
 
-    <!-- Formulario de registro del usuario -->
+    <!-- Formulario de registro de usuarios -->
     <?= form_open(url_to('backend.users.create')) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo del nombre -->
@@ -46,7 +46,10 @@
                         type="text"
                         name="name"
                         id="name"
+                        required
+                        maxlength="128"
                         placeholder="Escribe su nombre completo"
+                        value="<?= set_value('name') ?>"
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo del nombre completo del usuario" class="btn btn-primary btn-square">
@@ -73,7 +76,10 @@
                         type="email"
                         name="email"
                         id="email"
+                        required
+                        maxlength="256"
                         placeholder="Escribe su email"
+                        value="<?= set_value('email') ?>"
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo del email del usuario" class="btn btn-primary btn-square">
@@ -95,10 +101,16 @@
                         Rol:
                     </span>
                 </label>
-                <?= form_dropdown('role_id', [], '', [
-                    'id'    => 'role_id',
-                    'class' => 'select select-bordered select-primary w-full',
-                ]) ?>
+                <select name="role_id" id="role_id" required class="select select-bordered select-primary w-full">
+                    <?php foreach ($roles as $role): ?>
+                        <option
+                            value="<?= esc($role['id']) ?>"
+                            <?= set_select('role_id', $role['id']) ?>
+                        >
+                            <?= esc($role['description']) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= validation_show_error('role_id') ?>
@@ -119,7 +131,11 @@
                         type="password"
                         name="password"
                         id="password"
+                        required
+                        minlength="8"
+                        maxlength="32"
                         placeholder="Escribe su contraseña"
+                        value=""
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo de la contraseña del usuario" class="btn btn-primary btn-square">
@@ -146,7 +162,11 @@
                         type="password"
                         name="pass_confirm"
                         id="pass_confirm"
+                        required
+                        minlength="8"
+                        maxlength="32"
                         placeholder="Repita su contraseña"
+                        value=""
                         class="input input-bordered input-primary w-full"
                     >
                     <button type="button" aria-label="Campo de confirmación de la contraseña del usuario" class="btn btn-primary btn-square">
@@ -163,6 +183,7 @@
 
             <!-- Botones de confirmación -->
             <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-3">
+                <!-- Botón de submit -->
                 <input type="submit" value="Guardar" class="btn btn-primary">
 
                 <label for="modal-confirm" class="btn btn-secondary">
@@ -171,7 +192,7 @@
             </div>
         </div>
     <?= form_close() ?>
-    <!-- Fin del formulario de registro del usuario -->
+    <!-- Fin del formulario de registro de usuarios -->
 
     <!-- Modal de confirmación -->
     <?= $this->setData([

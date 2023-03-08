@@ -11,6 +11,16 @@
     >
 <?= $this->endSection() ?>
 
+<?= $this->section('javascript') ?>
+    <!-- Mensaje de notificación -->
+    <?php if (session()->has('toast-success')): ?>
+        <?= $this->setData([
+            'message' => session()->getFlashdata('toast-success'),
+        ])->include('backend/components/toast-success') ?>
+    <?php endif ?>
+    <!-- Fin del mensaje de notificación -->
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
