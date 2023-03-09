@@ -110,11 +110,19 @@
                         </a>
                     </span>
                 </label>
-                <?= form_dropdown('theme', $themes, setting()->get('App.general', 'theme'), [
-                    'id'       => 'theme',
-                    'required' => true,
-                    'class'    => 'select select-secondary w-full',
-                ]) ?>
+                <select name="theme" id="theme" class="select select-secondary w-full">
+                    <option value="" selected>
+                        default
+                    </option>
+                    <?php foreach ($themes as $theme): ?>
+                        <option
+                            value="<?= esc($theme) ?>"
+                            <?= $theme === $currentTheme ? 'selected' : '' ?>
+                        >
+                            <?= esc($theme) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= validation_show_error('theme') ?>

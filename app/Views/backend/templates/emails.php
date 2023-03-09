@@ -21,7 +21,7 @@ $year = Time::now()->getYear();
 
 <?= $this->section('content') ?>
     <div class="bg-base-200 flex flex-col justify-center items-center min-h-screen">
-        <div class="container max-w-2xl">
+        <div class="container py-4 lg:py-8 max-w-2xl">
             <!-- Sección del contenido agregado al email -->
             <div class="bg-base-100 p-8 rounded shadow-xl">
                 <!-- Logo de la empresa -->
@@ -46,7 +46,11 @@ $year = Time::now()->getYear();
                     <p>
                         Copyright &copy <?= esc($year === '2023' ? '2023' : "2023-{$year}") ?>
                         - Todos los derechos reservados por<br>
-                        <a href="<?= url_to('website.pages.home') ?>" target="_blank" class="hover:font-medium">
+                        <a
+                            href="<?= url_to('website.pages.home') ?>"
+                            target="_blank"
+                            class="hover:font-medium"
+                        >
                             <?= esc(setting()->get('App.general', 'company')) ?>
                         </a>
                     </p>

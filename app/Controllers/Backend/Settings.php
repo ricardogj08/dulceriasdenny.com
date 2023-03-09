@@ -35,7 +35,7 @@ class Settings extends BaseController
         if (strtolower($this->request->getMethod()) !== 'post' || ! $this->validate([
             'company'                   => 'required|max_length[256]',
             'phones'                    => 'required|max_length[256]',
-            'theme'                     => "required|in_list[{$themesList}]",
+            'theme'                     => "permit_empty|in_list[{$themesList}]",
             'favicon'                   => 'permit_empty|uploaded[favicon]|max_size[favicon,4096]|is_image[favicon]',
             'background'                => 'permit_empty|uploaded[background]|max_size[background,4096]|is_image[background]',
             'logo'                      => 'permit_empty|uploaded[logo]|max_size[logo,4096]|is_image[logo]',
@@ -48,10 +48,9 @@ class Settings extends BaseController
             'deleteGoogleSearchConsole' => 'if_exist|in_list[true]',
             'googleRecaptcha'           => 'if_exist|max_length[256]',
         ])) {
-            $themes = array_combine($themes, $themes);
-
             return view('backend/settings/update', [
-                'themes' => $themes,
+                'themes'       => $themes,
+                'currentTheme' => setting()->get('App.general', 'theme'),
             ]);
         }
 
@@ -62,7 +61,7 @@ class Settings extends BaseController
         setting()->set('App.general', trimAll($this->request->getPost('phones')), 'phones');
 
         // Modifica el tema de colores.
-        setting()->set('App.general', stripAllSpaces($this->request->getPost('theme')), 'theme');
+        setting()->set('App.general', stripAllSpaces($this->request->getPost('theme')) ?: null, 'theme');
 
         // Define la ruta de los archivos subidos para las configuraciones del backend.
         $path = FCPATH . 'uploads/settings/';

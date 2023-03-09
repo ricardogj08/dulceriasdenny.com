@@ -44,7 +44,12 @@
 
     <div class="divider"></div>
 
-    <div class="pb-6">
+    <div class="pb-6 flex flex-col gap-4">
+        <!-- Mensajes de errores de validación -->
+        <div class="text-error text-sm">
+            <?= validation_list_errors() ?>
+        </div>
+
         <?= form_open(url_to('backend.users.index'), ['method' => 'get']) ?>
             <div class="flex flex-col lg:flex-row items-end lg:items-center justify-between gap-4">
                 <!-- Campo de búsqueda -->
@@ -54,7 +59,7 @@
                             type="text"
                             name="q"
                             placeholder="Buscar..."
-                            value=""
+                            value="<?= esc($queryParam) ?>"
                             class="input input-bordered w-full"
                         >
 
@@ -92,7 +97,7 @@
                                     Filtro de búsqueda:
                                 </span>
                             </label>
-                            <?= form_dropdown('filter', [], '', [
+                            <?= form_dropdown('filter', $filterFields, $filterParam, [
                                 'id'    => 'filter',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -106,7 +111,7 @@
                                     Campo de ordenamiento:
                                 </span>
                             </label>
-                            <?= form_dropdown('sortBy', [], '', [
+                            <?= form_dropdown('sortBy', $sortByFields, $sortByParam, [
                                 'id'    => 'sortBy',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -120,7 +125,7 @@
                                     Modo de ordenamiento:
                                 </span>
                             </label>
-                            <?= form_dropdown('sortOrder', [], '', [
+                            <?= form_dropdown('sortOrder', $sortOrderFields, $sortOrderParam, [
                                 'id'    => 'sortOrder',
                                 'class' => 'select select-bordered w-full',
                             ]) ?>
@@ -134,10 +139,20 @@
                                     Filtrar por rol:
                                 </span>
                             </label>
-                            <?= form_dropdown('role_id', [], '', [
-                                'id'    => 'role_id',
-                                'class' => 'select select-bordered w-full',
-                            ]) ?>
+
+                            <select name="role_id" id="role_id" class="select select-bordered w-full">
+                                <option value="" selected>
+                                    Todos
+                                </option>
+                                <?php foreach ($roles as $role): ?>
+                                    <option
+                                        value="<?= esc($role['id']) ?>"
+                                        <?= $role['id'] === $roleIdParam ? 'selected' : '' ?>
+                                    >
+                                        <?= esc($role['description']) ?>
+                                    </option>
+                                <?php endforeach ?>
+                            </select>
                         </div>
                         <!-- Fin del campo de filtrado por rol -->
 
@@ -153,7 +168,7 @@
                                 name="dateFrom"
                                 id="dateFrom"
                                 class="input input-bordered w-full"
-                                value=""
+                                value="<?= esc($dateFromParam) ?>"
                             >
                         </div>
                         <!-- Fin del campo de filtrado por fecha desde -->
@@ -170,7 +185,7 @@
                                 name="dateTo"
                                 id="dateTo"
                                 class="input input-bordered w-full"
-                                value=""
+                                value="<?= esc($dateToParam) ?>"
                             >
                         </div>
                         <!-- Fin del campo de filtrado por fecha hasta -->
@@ -192,72 +207,92 @@
     </div>
 
     <!-- Tabla de usuarios -->
-    <div class="overflow-x-auto">
-        <table class="table w-full">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Rol</th>
-                    <th>Activo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="hover">
-                    <th></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div class="flex gap-2">
-                            <!-- Formulario que alterna el estado de cuenta del usuario -->
-                            <?= form_open(url_to('backend.users.toggle-active', 1)) ?>
-                                <label
-                                    for="modal-submit-toggle-active"
-                                    class="btn btn-square btn-success btn-outline btn-sm"
-                                >
-                                    <!-- <i class="ri-close-fill text-xl"></i> -->
-                                    <i class="ri-recycle-line text-xl"></i>
-                                </label>
+    <div class="pb-4">
+        <div class="overflow-x-auto">
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($users as $user): ?>
+                        <tr class="hover">
+                            <th>
+                                <?= character_limiter(esc($user['name']), 32) ?>
+                            </th>
+                            <td>
+                                <?= esc($user['email']) ?>
+                            </td>
+                            <td>
+                                <?= esc($user['role']) ?>
+                            </td>
+                            <td>
+                                <div class="badge <?= $user['active'] ? 'badge-success' : 'badge-error' ?>">
+                                    <?= esc($user['active'] ? 'Sí' : 'No') ?>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flex gap-2">
+                                    <!-- Formulario que alterna el estado de cuenta del usuario -->
+                                    <?= form_open(url_to('backend.users.toggle-active', $user['id'])) ?>
+                                        <label
+                                            for="modal-submit-toggle-active-<?= esc($user['id']) ?>"
+                                            class="btn btn-square btn-outline btn-sm <?= $user['active'] ? 'btn-warning' : 'btn-success' ?>"
+                                        >
+                                            <i class="text-xl <?= $user['active'] ? 'ri-close-fill' : 'ri-recycle-line' ?>"></i>
+                                        </label>
 
-                                <?= $this->setData([
-                                    'id'      => 'modal-submit-toggle-active',
-                                    'message' => '¿Deseas dar de baja este usuario?',
-                                ])->include('backend/components/modal-submit') ?>
-                            <?= form_close() ?>
-                            <!-- Fin del formulario que alterna el estado de cuenta del usuario -->
+                                        <?= $this->setData([
+                                            'id'      => "modal-submit-toggle-active-{$user['id']}",
+                                            'message' => $user['active']
+                                                ? '¿Deseas dar de baja este usuario?'
+                                                : '¿Deseas dar de alta este usuario?',
+                                        ])->include('backend/components/modal-submit') ?>
+                                    <?= form_close() ?>
+                                    <!-- Fin del formulario que alterna el estado de cuenta del usuario -->
 
-                            <!-- Botón para editar los datos del usuario -->
-                            <a
-                                href="<?= url_to('backend.users.update', 1) ?>"
-                                aria-label="Botón para editar los datos del usuario"
-                                class="btn btn-square btn-info btn-outline btn-sm"
-                            >
-                                <i class="ri-pencil-line text-xl"></i>
-                            </a>
-                            <!-- Fin del botón para editar los datos del usuario -->
+                                    <!-- Botón para editar los datos del usuario -->
+                                    <a
+                                        href="<?= url_to('backend.users.update', $user['id']) ?>"
+                                        aria-label="Botón para editar los datos del usuario"
+                                        class="btn btn-square btn-info btn-outline btn-sm"
+                                    >
+                                        <i class="ri-pencil-line text-xl"></i>
+                                    </a>
+                                    <!-- Fin del botón para editar los datos del usuario -->
 
-                            <!-- Formulario para eliminar el usuario -->
-                            <?= form_open(url_to('backend.users.delete', 1)) ?>
-                                <label
-                                    for="modal-submit-delete"
-                                    class="btn btn-square btn-error btn-outline btn-sm"
-                                >
-                                    <i class="ri-delete-bin-5-line text-xl"></i>
-                                </label>
+                                    <!-- Formulario para eliminar el usuario -->
+                                    <?= form_open(url_to('backend.users.delete', $user['id'])) ?>
+                                        <label
+                                            for="modal-submit-delete-<?= esc($user['id']) ?>"
+                                            class="btn btn-square btn-error btn-outline btn-sm"
+                                        >
+                                            <i class="ri-delete-bin-5-line text-xl"></i>
+                                        </label>
 
-                                <?= $this->setData([
-                                    'id'      => 'modal-submit-delete',
-                                    'message' => '¿Deseas eliminar este usuario?',
-                                ])->include('backend/components/modal-submit') ?>
-                            <?= form_close() ?>
-                            <!-- Fin del formulario para eliminar el usuario -->
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                        <?= $this->setData([
+                                            'id'      => "modal-submit-delete-{$user['id']}",
+                                            'message' => '¿Deseas eliminar este usuario?',
+                                        ])->include('backend/components/modal-submit') ?>
+                                    <?= form_close() ?>
+                                    <!-- Fin del formulario para eliminar el usuario -->
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- Fin de la tabla de usuarios -->
+
+    <!-- Paginación -->
+    <div class="flex justify-center lg:justify-end">
+        <?= $pager->links('default', 'backend') ?>
+    </div>
 <?= $this->endSection() ?>

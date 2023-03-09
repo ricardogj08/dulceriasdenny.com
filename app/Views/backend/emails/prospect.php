@@ -37,8 +37,8 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <th>Mensaje:</th>
-                    <td></td>
+                    <th class="align-top">Mensaje:</th>
+                    <td class="whitespace-normal"></td>
                 </tr>
                 <tr>
                     <th>Fecha:</th>

@@ -118,10 +118,10 @@ class PopUps extends BaseController
         $queryParam = trimAll($this->request->getGet('q'));
 
         // Obtiene el campo de ordenamiento (por defecto: 'created_at').
-        $sortByParam = stripAllSpaces($this->request->getGet('sortBy') ?: 'created_at');
+        $sortByParam = stripAllSpaces($this->request->getGet('sortBy')) ?: 'created_at';
 
         // Obtiene el campo del modo de ordenamiento (por defecto: 'desc');
-        $sortOrderParam = stripAllSpaces($this->request->getGet('sortOrder') ?: 'desc');
+        $sortOrderParam = stripAllSpaces($this->request->getGet('sortOrder')) ?: 'desc';
 
         // Obtiene el campo de filtrado de Pop Ups habilitados (por defecto: '').
         $activeFilterParam = stripAllSpaces($this->request->getGet('active'));
@@ -181,8 +181,6 @@ class PopUps extends BaseController
             ->like('name', $queryParam)
             ->orderBy($sortByParam, $sortOrderParam)
             ->paginate(8);
-
-        $activeFilterFields[''] = 'Todos';
 
         return view('backend/modules/popups/index', [
             'queryParam'         => $queryParam,

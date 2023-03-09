@@ -114,10 +114,19 @@
                                     Filtrar por estado:
                                 </span>
                             </label>
-                            <?= form_dropdown('active', $activeFilterFields, $activeFilterParam, [
-                                'id'    => 'active',
-                                'class' => 'select select-bordered w-full',
-                            ]) ?>
+                            <select name="active" id="active" class="select select-bordered w-full">
+                                <option value="" selected>
+                                    Todos
+                                </option>
+                                <?php foreach ($activeFilterFields as $value => $description): ?>
+                                    <option
+                                        value="<?= esc($value) ?>"
+                                        <?= $value === $activeFilterParam ? 'selected' : '' ?>
+                                    >
+                                        <?= esc($description) ?>
+                                    </option>
+                                <?php endforeach ?>
+                            </select>
                         </div>
                         <!-- Fin del campo de filtrado por activación -->
                     </div>

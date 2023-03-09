@@ -22,7 +22,10 @@
     </p>
 
     <p class="text-center mb-2">
-        <a href="<?= url_to('backend.auth.recovery', 1, 'test') ?>" class="btn btn-primary btn-wide">
+        <a
+            href="<?= url_to('backend.auth.recovery', 1, 'test') ?>"
+            class="btn btn-primary btn-wide"
+        >
             Recuperar contraseña
         </a>
     </p>

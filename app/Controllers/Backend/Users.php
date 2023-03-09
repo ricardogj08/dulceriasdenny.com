@@ -59,7 +59,85 @@ class Users extends BaseController
      */
     public function index()
     {
-        return view('backend/users/index');
+        // Define los campos de filtrado de resultados.
+        $filterFields = [
+            'name'  => 'Nombre',
+            'email' => 'Email',
+        ];
+
+        $filterList = implode(',', array_keys($filterFields));
+
+        // Define los campos de ordenamiento de resultados.
+        $sortByFields = [
+            'name'       => 'Nombre',
+            'created_at' => 'Fecha de registro',
+        ];
+
+        $sortByList = implode(',', array_keys($sortByFields));
+
+        // Define los modos de ordenamiento de resultados.
+        $sortOrderFields = [
+            'asc'  => 'Ascendente',
+            'desc' => 'Descendente',
+        ];
+
+        $sortOrderList = implode(',', array_keys($sortOrderFields));
+
+        // Obtiene el patrón de búsqueda (por defecto: '').
+        $queryParam = trimAll($this->request->getGet('q'));
+
+        // Obtiene el campo de filtrado de resultados (por defecto: 'name').
+        $filterParam = stripAllSpaces($this->request->getGet('filter')) ?: 'name';
+
+        // Obtiene el campo de ordenamiento (por defecto: 'created_at').
+        $sortByParam = stripAllSpaces($this->request->getGet('sortBy')) ?: 'created_at';
+
+        // Obtiene el campo del modo de ordenamiento (por defecto: 'desc');
+        $sortOrderParam = stripAllSpaces($this->request->getGet('sortOrder')) ?: 'desc';
+
+        // Obtiene el campo de filtrado por rol (por defecto: '').
+        $roleIdParam = stripAllSpaces($this->request->getGet('role_id'));
+
+        // Obtiene el campo de filtrado por fecha desde (por defecto: '').
+        $dateFromParam = stripAllSpaces($this->request->getGet('dateFrom'));
+
+        // Obtiene el campo de filtrado por fecha hasta (por defecto: '').
+        $dateToParam = stripAllSpaces($this->request->getGet('dateTo'));
+
+        $roleModel = model('RoleModel');
+
+        // Consulta todos los roles del backend.
+        $roles = $roleModel->select('id, description')
+            ->orderBy('description', 'asc')
+            ->findAll();
+
+        $userModel = model('UserModel');
+
+        // Define los campos a seleccionar.
+        $builder = $userModel->select('users.id, users.name, users.email, users.active, roles.description as role');
+
+        /**
+         * Consulta los datos de todos los usuarios
+         * que coinciden con el patrón de búsqueda
+         * con paginación.
+         */
+        $users = $builder->role()->paginate(8);
+
+        return view('backend/users/index', [
+            'queryParam'      => $queryParam,
+            'filterFields'    => $filterFields,
+            'filterParam'     => $filterParam,
+            'sortByFields'    => $sortByFields,
+            'sortByParam'     => $sortByParam,
+            'sortOrderFields' => $sortOrderFields,
+            'sortOrderParam'  => $sortOrderParam,
+            'roles'           => $roles,
+            'roleIdParam'     => $roleIdParam,
+            'dateFromParam'   => $dateFromParam,
+            'dateToParam'     => $dateToParam,
+            'users'           => $users,
+            'pager'           => $userModel->pager,
+        ]);
     }
 
     /**

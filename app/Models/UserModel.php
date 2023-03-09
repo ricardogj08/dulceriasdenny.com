@@ -35,4 +35,14 @@ class UserModel extends Model
 
     // Callbacks
     protected $allowCallbacks = false;
+
+    /**
+     * Rol del usuario.
+     */
+    public function role()
+    {
+        $this->builder()->join('roles', 'roles.id = users.role_id', 'inner');
+
+        return $this;
+    }
 }

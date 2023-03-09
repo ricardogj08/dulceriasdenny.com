@@ -61,15 +61,21 @@
                 <tbody>
                     <tr>
                         <th>Empresa:</th>
-                        <td><?= esc(setting()->get('App.general', 'company')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.general', 'company')) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Teléfonos:</th>
-                        <td><?= esc(setting()->get('App.general', 'phones')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.general', 'phones')) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Tema:</th>
-                        <td><?= esc(setting()->get('App.general', 'theme')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.general', 'theme')) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Favicon:</th>
@@ -126,19 +132,27 @@
                 <tbody>
                     <tr>
                         <th>Remitente:</th>
-                        <td><?= esc(config('Email')->SMTPUser) ?></td>
+                        <td>
+                            <?= esc(config('Email')->SMTPUser) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Destinatarios:</th>
-                        <td><?= esc(setting()->get('App.emails', 'to')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.emails', 'to')) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Destinatarios CC:</th>
-                        <td><?= esc(setting()->get('App.emails', 'cc')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.emails', 'cc')) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Destinatarios BCC:</th>
-                        <td><?= esc(setting()->get('App.emails', 'bcc')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.emails', 'bcc')) ?>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -165,11 +179,15 @@
                 <tbody>
                     <tr>
                         <th>WhatsApp:</th>
-                        <td><?= esc(setting()->get('App.apps', 'whatsapp')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.apps', 'whatsapp')) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Google Tag Manager:</th>
-                        <td><?= esc(setting()->get('App.apps', 'google:tagManager')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.apps', 'google:tagManager')) ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Google Search Console:</th>
@@ -187,7 +205,9 @@
                     </tr>
                     <tr>
                         <th>Google reCAPTCHA:</th>
-                        <td><?= esc(setting()->get('App.apps', 'google:recaptcha')) ?></td>
+                        <td>
+                            <?= esc(setting()->get('App.apps', 'google:recaptcha')) ?>
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -52,10 +52,10 @@ class SocialNetworks extends BaseController
         $queryParam = trimAll($this->request->getGet('q'));
 
         // Obtiene el campo de ordenamiento (por defecto: 'name').
-        $sortByParam = stripAllSpaces($this->request->getGet('sortBy') ?: 'name');
+        $sortByParam = stripAllSpaces($this->request->getGet('sortBy')) ?: 'name';
 
         // Obtiene el campo del modo de ordenamiento (por defecto: 'asc');
-        $sortOrderParam = stripAllSpaces($this->request->getGet('sortOrder') ?: 'asc');
+        $sortOrderParam = stripAllSpaces($this->request->getGet('sortOrder')) ?: 'asc';
 
         // Obtiene el campo de filtrado de redes sociales habilitados (por defecto: '').
         $activeFilterParam = stripAllSpaces($this->request->getGet('active'));
@@ -79,8 +79,6 @@ class SocialNetworks extends BaseController
             ->like('name', $queryParam)
             ->orderBy($sortByParam, $sortOrderParam)
             ->paginate(8);
-
-        $activeFilterFields[''] = 'Todos';
 
         return view('backend/modules/socialNetworks/index', [
             'queryParam'         => $queryParam,
