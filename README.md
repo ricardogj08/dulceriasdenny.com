@@ -10,6 +10,7 @@ Dulcerías Denny
 * [Composer](https://getcomposer.org/)
 * [MariaDB >= 5.1](https://mariadb.org/)
 * [npm](https://www.npmjs.com/)
+* [gendoc](https://bztsrc.gitlab.io/gendoc/) ***(opcional)***
 
 ## Instalación
 
@@ -83,6 +84,10 @@ Comprueba y finaliza todos los Pop Ups publicados que cuentan con una fecha de t
 
 	php spark popups:finish
 
+Genera la documentación de la API RESTful:
+
+	composer run docs
+
 ## Referencias
 
 * [CodeIgniter4 User Guide](https://codeigniter4.github.io/userguide/)
@@ -134,6 +139,8 @@ Comprueba y finaliza todos los Pop Ups publicados que cuentan con una fecha de t
 * [Git-ftp - Uploads to FTP servers the Git way](https://github.com/git-ftp/git-ftp)
 * [WhatsApp - Cómo usar la función de clic para chatear](https://faq.whatsapp.com/5913398998672934/?helpref=hc_fnav&locale=es_LA)
 * [Hostinger Tutoriales - How to Force HTTPS Using .htaccess (Updated 2023)](https://www.hostinger.com/tutorials/ssl/force-https-using-htaccess)
+* [gendoc - A suckless documentation generation alternative to Shpinx and ReadtheDocs](https://gitlab.com/bztsrc/gendoc)
+* [gendoc documentation](https://bztsrc.gitlab.io/gendoc/)
 
 ## Licencia
 

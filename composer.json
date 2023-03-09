@@ -36,7 +36,8 @@
     },
     "scripts": {
         "test": "phpunit",
-        "prettier": "vendor/bin/php-cs-fixer fix --diff"
+        "prettier": "vendor/bin/php-cs-fixer fix --diff",
+        "docs": "gendoc docs/index.html src/docs/config.xml"
     },
     "support": {
         "forum": "https://forum.codeigniter.com/",

@@ -1,0 +1,30 @@
+<doc>
+    <title>Documentación</title>
+    <url>https://ricardogj08.github.io/dulceriasdenny.com/</url>
+    <version>1.0</version>
+    <lang>es</lang>
+    <rslt>Resultados de búsqueda</rslt>
+    <home>Inicio</home>
+    <link>Enlace permanente a este encabezado</link>
+    <info>Importante</info>
+    <hint>Sugerencia</hint>
+    <note>Nota</note>
+    <also>Véase también</also>
+    <todo>To Do</todo>
+    <warn>Aviso</warn>
+    <args>Argumentos</args>
+    <rval>Devolver valor</rval>
+    <prev>Anterior</prev>
+    <next>Siguiente</next>
+    <copy>2022 - Genotipo &reg;</copy>
+</doc>
+
+<hello>
+    <include home.md>
+</hello>
+
+<cap>Productos</cap>
+<include products/create.md>
+
+<cap>Marcas</cap>
+<include brands/create.md>

@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "tailwindcss": "npx tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/css/website.css -w -m",
-    "tailwindcss-backend": "npx tailwindcss -c ./tailwind.backend.config.js -i ./src/input.backend.css -o ./public/css/backend.css -w -m"
+    "tailwindcss": "npx tailwindcss -c tailwind.config.js -i src/styles/input.css -o public/css/website.css -w -m",
+    "tailwindcss-backend": "npx tailwindcss -c tailwind.backend.config.js -i src/styles/input.backend.css -o public/css/backend.css -w -m"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
