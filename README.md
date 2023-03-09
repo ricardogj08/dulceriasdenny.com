@@ -3,6 +3,7 @@
 Dulcerías Denny
 
 * [Notion](https://ricardogj08.notion.site/587b0a12194246e4aff50a49d73dee2b?v=a982b01797dc41ea8d744e2f5a702358)
+* [Documentación a la API RESTful](https://ricardogj08.github.io/dulceriasdenny.com/)
 
 ## Dependencias
 
@@ -10,7 +11,7 @@ Dulcerías Denny
 * [Composer](https://getcomposer.org/)
 * [MariaDB >= 5.1](https://mariadb.org/)
 * [npm](https://www.npmjs.com/)
-* [gendoc](https://bztsrc.gitlab.io/gendoc/) ***(opcional)***
+* [gendoc](https://bztsrc.gitlab.io/gendoc/) *(opcional)*
 
 ## Instalación
 

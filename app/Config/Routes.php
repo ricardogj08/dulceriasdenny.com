@@ -158,7 +158,7 @@ $routes->group('backend', static function ($routes) {
             $routes->post('modificar/(:num)', 'Backend\Modules\SocialNetworks::update/$1', ['as' => 'backend.modules.socialNetworks.update']);
         });
 
-        // Definición de rutas del módulo de Pop-Ups.
+        // Definición de rutas del módulo de Pop Ups.
         $routes->group('popups', static function ($routes) {
             $routes->get('nuevo', 'Backend\Modules\PopUps::create', ['as' => 'backend.modules.popups.create']);
             $routes->post('nuevo', 'Backend\Modules\PopUps::create', ['as' => 'backend.modules.popups.create']);
