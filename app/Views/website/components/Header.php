@@ -347,6 +347,6 @@
         <!-- Fin del botón del formulario de contacto -->
     </div>
     <div class="absolute -bottom-12 right-8 z-40 animate-bounce">
-        <Whatsapp/>
+        <?= $this->include('website/components/Whatsapp') ?>
     </div>
 </header>

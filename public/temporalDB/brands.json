@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "De la rosa",
+    "imgSrc": "/images/brands/marca-1.webp"
+  },
+  {
+    "id": 2,
+    "name": "Ricolino",
+    "imgSrc": "/images/brands/marca-2.webp"
+  },
+  {
+    "id": 3,
+    "name": "Sonrics",
+    "imgSrc": "/images/brands/marca-3.webp"
+  },
+  {
+    "id": 4,
+    "name": "Dulces Vero",
+    "imgSrc": "/images/brands/marca-4.webp"
+  },
+  {
+    "id": 5,
+    "name": "Gamesa",
+    "imgSrc": "/images/brands/marca-5.webp"
+  },
+  {
+    "id": 6,
+    "name": "Sabritas",
+    "imgSrc": "/images/brands/marca-6.webp"
+  }
+]

@@ -14,16 +14,21 @@ class Pages extends BaseController
         // Read the JSON files
         $jsonProducts   = file_get_contents('temporalDB/products.json');
         $jsonCategories = file_get_contents('temporalDB/categories.json');
+        $jsonSeasons = file_get_contents('temporalDB/seasons.json');
+        $jsonBrands = file_get_contents('temporalDB/brands.json');
 
         // Decode the JSON files
-        $products   = json_decode($jsonProducts, true);
+        $products = json_decode($jsonProducts, true);
         $categories = json_decode($jsonCategories, true);
+        $seasons = json_decode($jsonSeasons, true);
+        $brands = json_decode($jsonBrands, true);
 
         $favorites = array_slice($products, 0, 3);
-
         return view('website/pages/home', [
-            'favorites'  => $favorites,
+            'favorites' => $favorites,
             'categories' => $categories,
+            'seasons' => $seasons,
+            'brands' => $brands
         ]);
     }
 
@@ -40,7 +45,22 @@ class Pages extends BaseController
      */
     public function offices()
     {
-        return view('website/pages/offices');
+        // Read the JSON files
+        $jsonOffices = file_get_contents('temporalDB/offices.json');
+
+        // Decode the JSON files
+        $offices = json_decode($jsonOffices, true);
+        // Get cities
+        $cities = array_map(function ($city) {
+            return $city['name'];
+        }, $offices);
+
+        $initialMapUrl = $offices[0]['offices'][0]['mapCoords'];
+        return view('website/pages/offices', [
+            'offices' => $offices,
+            'cities' => $cities,
+            'initialMapUrl' => $initialMapUrl
+        ]);
     }
 
     /**
@@ -48,7 +68,14 @@ class Pages extends BaseController
      */
     public function about()
     {
-        return view('website/pages/about');
+        // Read the JSON files
+        $jsonCategories = file_get_contents('temporalDB/categories.json');
+
+        // Decode the JSON files
+        $categories = json_decode($jsonCategories, true);
+        return view('website/pages/about', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -65,6 +92,19 @@ class Pages extends BaseController
     public function privacy()
     {
         return view('website/pages/privacy');
+    }
+
+    /**
+     * Renderiza la página de aviso de privacidad.
+     */
+    public function promotions()
+    {
+        // Decode the JSON files
+        $jsonProducts = file_get_contents('temporalDB/products.json');
+        $products = json_decode($jsonProducts, true);
+        return view('website/pages/promotions', [
+            'products' => $products
+        ]);
     }
 
     /**

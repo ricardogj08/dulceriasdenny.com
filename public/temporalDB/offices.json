@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "name": "Guanajuato",
+        "offices": [
+            {
+                "locationName": "Abasolo",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d3738.315302513878!2d-101.53083298556398!3d20.452239012585853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c6f63d8eb5c77%3A0x70242b0981cdd2a7!2sDulcer%C3%ADas%20Denny%20Abasolo!5e0!3m2!1ses-419!2smx!4v1673978595738!5m2!1ses-419!2smx"
+            },
+            {
+                "locationName": "Abastos 2",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d239079.8038959605!2d-101.58065598507372!3d20.56264405937106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c7fc9092ccbb7%3A0xa369b77db68c957e!2sDulcer%C3%ADas%20Denny%20Abastos%202!5e0!3m2!1ses-419!2smx!4v1673978773410!5m2!1ses-419!2smx"
+            },
+            {
+                "locationName": "Celaya",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d3736.8484244113224!2d-100.81113968556306!3d20.512439010580493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842cbb44c3a083a1%3A0xdcd7fd97736aa65d!2sDulcer%C3%ADas%20Denny%20Celaya!5e0!3m2!1ses-419!2smx!4v1673980051522!5m2!1ses-419!2smx"
+            },
+            {
+                "locationName": "Abasolo",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d3738.315302513878!2d-101.53083298556398!3d20.452239012585853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c6f63d8eb5c77%3A0x70242b0981cdd2a7!2sDulcer%C3%ADas%20Denny%20Abasolo!5e0!3m2!1ses-419!2smx!4v1673978595738!5m2!1ses-419!2smx"
+            },
+            {
+                "locationName": "Abastos 2",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d239079.8038959605!2d-101.58065598507372!3d20.56264405937106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c7fc9092ccbb7%3A0xa369b77db68c957e!2sDulcer%C3%ADas%20Denny%20Abastos%202!5e0!3m2!1ses-419!2smx!4v1673978773410!5m2!1ses-419!2smx"
+            },
+            {
+                "locationName": "Celaya",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d3736.8484244113224!2d-100.81113968556306!3d20.512439010580493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842cbb44c3a083a1%3A0xdcd7fd97736aa65d!2sDulcer%C3%ADas%20Denny%20Celaya!5e0!3m2!1ses-419!2smx!4v1673980051522!5m2!1ses-419!2smx"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Queretaro",
+        "offices": [
+            {
+                "locationName": "City 1",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d3738.315302513878!2d-101.53083298556398!3d20.452239012585853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c6f63d8eb5c77%3A0x70242b0981cdd2a7!2sDulcer%C3%ADas%20Denny%20Abasolo!5e0!3m2!1ses-419!2smx!4v1673978595738!5m2!1ses-419!2smx"
+            },
+            {
+                "locationName": "City 2",
+                "location": "Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. Mexico",
+                "mapCoords": "!1m18!1m12!1m3!1d239079.8038959605!2d-101.58065598507372!3d20.56264405937106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842c7fc9092ccbb7%3A0xa369b77db68c957e!2sDulcer%C3%ADas%20Denny%20Abastos%202!5e0!3m2!1ses-419!2smx!4v1673978773410!5m2!1ses-419!2smx"
+            }
+        ]
+    }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Día de muertos",
+    "description": "Los mejores caramelos para poner en tu ofrenda.",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 2,
+    "name": "Fiestas patrias",
+    "description": "Disfruta del mes patrio con la selección de dulces y botanas más deliciosas.",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 3,
+    "name": "San Valentín",
+    "description": "El mejor regalo para esa persona especial.",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 4,
+    "name": "Día del Niño",
+    "description": "Celebra el día del niño con los más deliciosos dulces.",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 5,
+    "name": "Navidad",
+    "description": "Celebra con tus seres queridos las fiestas navideñas con los mejores dulces de la temporada.",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 6,
+    "name": "Mesa de Dulces",
+    "description": "Encuentra una gran variedad de dulces para decorar tu candy bar",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 7,
+    "name": "Cumpleños",
+    "description": "Endulza cualquier cumpleaños con la variedad más deliciosa de dulces",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  },
+  {
+    "id": 8,
+    "name": "Dia de las madres",
+    "description": "Festeja a mamá con los mejores dulces y chocolates que tenemos para ella",
+    "imgSrc": "/images/seasons/dia-muertos.webp"
+  }
+]

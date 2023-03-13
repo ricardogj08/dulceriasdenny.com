@@ -11,7 +11,12 @@ class Brands extends BaseController
      */
     public function index()
     {
-        return view('website/brands/index');
+        $jsonBrands = file_get_contents('temporalDB/brands.json');
+        $brands = json_decode($jsonBrands, true);
+
+        return view('website/brands/index', [
+            'brands' => $brands
+        ]);
     }
 
     /**
