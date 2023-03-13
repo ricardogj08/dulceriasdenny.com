@@ -16,8 +16,8 @@ class PopUpModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $allowedFields    = [
-        'name',
         'image',
+        'name',
         'active',
         'finished_at',
     ];

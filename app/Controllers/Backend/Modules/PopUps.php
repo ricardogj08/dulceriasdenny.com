@@ -19,7 +19,7 @@ class PopUps extends BaseController
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) !== 'post' || ! $this->validate(
             [
-                'name'        => 'required|max_length[256]|is_unique[popups.name]',
+                'name'        => 'required|max_length[256]',
                 'image'       => 'uploaded[image]|max_size[image,4096]|is_image[image]',
                 'finished_at' => 'permit_empty|valid_date[Y-m-d]|date_greater_than_equal_to_now',
                 'active'      => 'if_exist|in_list[active]',
@@ -48,15 +48,13 @@ class PopUps extends BaseController
         // Almacena la imagen.
         $image->move($path, $newImageName);
 
-        $finished_at = stripAllSpaces($this->request->getPost('finished_at'));
-
         $popUpModel = model('PopUpModel');
 
         // Registra el nuevo Pop Up.
         $popUpModel->insert([
             'name'        => trimAll($this->request->getPost('name')),
             'image'       => $newImageName,
-            'finished_at' => $finished_at
+            'finished_at' => stripAllSpaces($this->request->getPost('finished_at'))
                 ? Time::parse($finished_at)->toDateTimeString()
                 : null,
             'active' => (bool) stripAllSpaces($this->request->getPost('active')),
@@ -222,7 +220,7 @@ class PopUps extends BaseController
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) !== 'post' || ! $this->validate(
             [
-                'name'        => "required|max_length[256]|is_unique[popups.name,id,{$popup['id']}]",
+                'name'        => 'required|max_length[256]',
                 'image'       => 'permit_empty|uploaded[image]|max_size[image,4096]|is_image[image]',
                 'finished_at' => 'permit_empty|valid_date[Y-m-d]',
                 'active'      => 'if_exist|in_list[active]',
@@ -261,13 +259,11 @@ class PopUps extends BaseController
             ImageCompressor::getInstance()->run($path . $newImageName);
         }
 
-        $finished_at = stripAllSpaces($this->request->getPost('finished_at'));
-
         // Actualiza los datos del Pop Up.
         $popUpModel->update($popup['id'], [
             'name'        => trimAll($this->request->getPost('name')),
             'image'       => $newImageName,
-            'finished_at' => $finished_at
+            'finished_at' => stripAllSpaces($this->request->getPost('finished_at'))
                 ? Time::parse($finished_at)->toDateTimeString()
                 : null,
             'active' => (bool) stripAllSpaces($this->request->getPost('active')),

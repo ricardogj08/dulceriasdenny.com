@@ -4,11 +4,11 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
+/**
+ * Seeder que inicializa la tabla de roles de los usuarios.
+ */
 class RoleSeeder extends Seeder
 {
-    /**
-     * Seeder que inicializa la tabla de roles de los usuarios.
-     */
     public function run()
     {
         $roleModel = model('RoleModel');

@@ -11,11 +11,12 @@ class AuthModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'auth';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
+    protected $primaryKey       = 'user_id';
+    protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $allowedFields    = [
+        'user_id',
         'secret',
         'expires_at',
     ];

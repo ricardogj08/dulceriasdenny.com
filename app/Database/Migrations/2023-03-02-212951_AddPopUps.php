@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Migración que crea la tabla Pop Ups.
+ * Migración que crea la tabla de Pop Ups.
  */
 class AddPopUps extends Migration
 {
@@ -17,15 +17,14 @@ class AddPopUps extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
-                'type'       => 'varchar',
-                'constraint' => 256,
-                'unique'     => true,
-            ],
             'image' => [
                 'type'       => 'varchar',
                 'constraint' => 64,
                 'unique'     => true,
+            ],
+            'name' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
             ],
             'active' => [
                 'type'       => 'tinyint',
