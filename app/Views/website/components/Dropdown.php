@@ -1,6 +1,6 @@
 <?php
-$defaultOption = $options[0]; //this will change depends the category in the url
-$restOptions = array_slice($options, 0)
+$defaultOption = $options[0]; // this will change depends the category in the url
+$restOptions   = array_slice($options, 0)
 ?>
 
 

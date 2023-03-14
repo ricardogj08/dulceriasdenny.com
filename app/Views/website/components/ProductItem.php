@@ -16,7 +16,7 @@
         </p>
 
         <!-- Stock del producto -->
-        <?php if ($product['quantity']): ?>
+        <?php if (isset($product['quantity'])): ?>
             <p class="font-medium">
                 <?= esc($product['quantity']) ?>
             </p>

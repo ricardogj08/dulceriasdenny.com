@@ -11,18 +11,18 @@ class Categories extends BaseController
      */
     public function products()
     {
-        $jsonProducts = file_get_contents('temporalDB/products.json');
-        $jsonBrands = file_get_contents('temporalDB/brands.json');
+        $jsonProducts   = file_get_contents('temporalDB/products.json');
+        $jsonBrands     = file_get_contents('temporalDB/brands.json');
         $jsonCategories = file_get_contents('temporalDB/categories.json');
 
-        $products = json_decode($jsonProducts, true);
+        $products   = json_decode($jsonProducts, true);
         $categories = json_decode($jsonCategories, true);
-        $brands = json_decode($jsonBrands, true);
+        $brands     = json_decode($jsonBrands, true);
 
         return view('website/categories/products', [
-            'products' => $products,
+            'products'   => $products,
             'categories' => $categories,
-            'brands' => $brands
+            'brands'     => $brands,
         ]);
     }
 }

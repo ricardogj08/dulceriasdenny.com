@@ -21,11 +21,12 @@ class Products extends BaseController
      */
     public function show($slug = null)
     {
-        $jsonProducts = file_get_contents('temporalDB/products.json');
-        $products = json_decode($jsonProducts, true);
+        $jsonProducts    = file_get_contents('temporalDB/products.json');
+        $products        = json_decode($jsonProducts, true);
         $recommendations = array_slice($products, 0, 3);
+
         return view('website/products/show', [
-            'recommendations' => $recommendations
+            'recommendations' => $recommendations,
         ]);
     }
 }

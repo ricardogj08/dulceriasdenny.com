@@ -42,7 +42,6 @@ $routes->get('donde-comprar-dulces-mayoreo', 'Website\Pages::offices', ['as' => 
 $routes->get('nosotros', 'Website\Pages::about', ['as' => 'website.pages.about']);
 $routes->get('preguntas-frecuentes', 'Website\Pages::faqs', ['as' => 'website.pages.faqs']);
 $routes->get('aviso-privacidad', 'Website\Pages::privacy', ['as' => 'website.pages.privacy']);
-$routes->get('promociones', 'Website\Pages::promotions', ['as' => 'website.pages.promotions']);
 
 // Definición de rutas del formulario de contacto.
 $routes->group('contacto', static function ($routes) {

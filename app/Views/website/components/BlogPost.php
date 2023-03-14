@@ -1,6 +1,6 @@
 <article class="lg:flex lg:justify-between">
     <picture class="lg:w-1/2 max-w-lg min-w-[280px] w-3/4 mx-auto block">
-        <a href="">
+        <a href="<?= url_to('website.posts.show', 'test') ?>">
             <img src="/images/blog/post.webp" alt="Post image" class="w-full object-cover">
         </a>
     </picture>

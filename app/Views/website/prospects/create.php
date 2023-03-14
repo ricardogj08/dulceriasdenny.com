@@ -1,7 +1,9 @@
 <?= $this->extend('website/templates/page') ?>
 
 <?= $this->section('head') ?>
-<title>Gracias | Dulcerías Denny</title>
+    <title>
+        Gracias | Dulcerías Denny
+    </title>
 <?= $this->endSection() ?>
 
 
@@ -16,7 +18,7 @@
         </div>
     </div>
     <picture class="inline-block min-w-[280px] max-w-[550px] lg:w-[50%] self-end">
-        <img src="<?= base_url('images/prospects/gracias.webp') ?>" alt="Dulcerias Denny - Dulces" class="w-full object-cover">
+        <img src="<?= base_url('images/prospects/gracias.webp') ?>" alt="Dulcerías Denny - Dulces" class="w-full object-cover">
     </picture>
 </main>
 <?= $this->endSection() ?>
