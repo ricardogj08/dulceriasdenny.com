@@ -24,7 +24,7 @@
         <div class="container">
             <header class="text-center">
                 <h1 class="text-denny-dark-500 font-black text-3xl">Preguntas frecuentes</h1>
-                <a href="/" class="text-denny-blue-300 font-bold">Dulcerías Denny </a>
+                <a href="<?= url_to('website.pages.home') ?>" class="text-denny-blue-300 font-bold">Dulcerías Denny </a>
             </header>
             <section class="mt-8 grid gap-4">
                 <details class="py-4 px-8 bg-denny-light-200 rounded-2xl">

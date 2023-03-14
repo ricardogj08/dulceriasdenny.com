@@ -37,7 +37,7 @@
                         Adipiscing viverra morbi vestibulum sit venenatis etiam accumsan taciti congue aptent curabitur a vestibulum parturient faucibus massa a scelerisque cum sit montes suspendisse vestibulum dui sem id. Adipiscing etiam bibendum parturient parturient cubilia iaculis a malesuada malesuada sapien dui montes etiam pharetra ullamcorper pharetra fusce. Hendrerit dictumst scelerisque potenti ullamcorper congue fames in inceptos interdum lobortis mi nec suspendisse id class praesent mi suspendisse dignissim orci volutpat. Ultrices lacinia mi mollis cras scelerisque scelerisque eu auctor maecenas mi eu cras a sociosqu amet lorem consectetur dui ullamcorper placerat enim. Justo odio a odio malesuada scelerisque ultrices consequat parturient curabitur parturient pharetra nulla parturient quam amet bibendum justo ut semper in risus duis quis mus penatibus penatibus arcu erat.
                     </p>
                     <picture class="my-4 w-1/2 block mx-auto min-w-[250px]">
-                        <img src="/images/blog/post.webp" alt="Post" class="w-full object-cover">
+                        <img src="<?= base_url('images/blog/post.webp') ?>" alt="Post" class="w-full object-cover">
                     </picture>
                     <h3 class="text-denny-dark-500 font-black text-xl">Subtitulo</h3>
                     <p class="my-4">

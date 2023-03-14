@@ -39,7 +39,7 @@
             <!-- COPY -->
             <section class="flex flex-col sm:flex-row justify-between gap-4 text-center my-8 items-center">
                 <picture class="w-1/2 min-w-[225px] sm:w-1/5  inline-block">
-                    <img src="/images/seasons/dia-muertos.webp" alt="Dia de muertos - Dulcerías Denny" class="w-full object-cover">
+                    <img src="<?= base_url('images/seasons/dia-muertos.webp') ?>" alt="Dia de muertos - Dulcerías Denny" class="w-full object-cover">
                 </picture>
                 <div class="w-3/4">
                     <h1 class="text-denny-dark-500 text-2xl font-black">Venta de Dulces para Día de Muertos y Halloween</h1>

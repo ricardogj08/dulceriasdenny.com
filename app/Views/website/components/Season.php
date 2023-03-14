@@ -1,6 +1,6 @@
 <article class="flex flex-col md:flex-row items-center justify-center">
     <picture class="max-w-[350px] min-w-[200] w-1/2 inline-block">
-        <img src="<?= esc($season['imgSrc']) ?>" alt="Temporada - <?= esc($season['name']) ?>" class="w-full object-cover">
+        <img src="<?= base_url($season['imgSrc']) ?>" alt="Temporada - <?= esc($season['name']) ?>" class="w-full object-cover">
     </picture>
     <div class="mt-5 text-center md:w-[40%] md:text-left md:mt-0 md:ml-10">
         <h3 class="text-denny-blue-300 font-black text-xl"><?= esc($season['name']) ?></h3>

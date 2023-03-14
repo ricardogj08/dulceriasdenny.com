@@ -5,7 +5,7 @@
         <figure class="flex items-center justify-center max-w-[120px] mx-auto">
             <!-- Imagen de la categoría -->
             <img
-                src="<?= esc($category['image']) ?>"
+                src="<?= base_url($category['image']) ?>"
                 alt="Category <?= esc($category['name']) ?>"
                 class="w-full h-full object-cover mr-4"
             >

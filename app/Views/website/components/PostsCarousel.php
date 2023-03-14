@@ -17,19 +17,19 @@
         <!-- Posts slides -->
         <div class="slide w-full shrink-0" role="group">
             <figure class="w-10/12 sm:w-auto max-w-xl mx-auto">
-                <img src="/images/blog/post2.webp" alt="Post - Dulcerias Denny" class="max-w-full aspect-auto object-cover">
+                <img src="<?= base_url('images/blog/post2.webp') ?>" alt="Post - Dulcerias Denny" class="max-w-full aspect-auto object-cover">
                 <figcaption class="mt-4 text-center text-denny-dark-500 font-black text-xl">Titulo</figcaption>
             </figure>
         </div>
         <div class="slide w-full shrink-0" role="group">
             <figure class="w-10/12 sm:w-auto max-w-xl mx-auto">
-                <img src="/images/blog/post2.webp" alt="Post - Dulcerias Denny" class="max-w-full aspect-auto object-cover">
+                <img src="<?= base_url('images/blog/post2.webp') ?>" alt="Post - Dulcerias Denny" class="max-w-full aspect-auto object-cover">
                 <figcaption class="mt-4 text-center text-denny-dark-500 font-black text-xl">Titulo</figcaption>
             </figure>
         </div>
         <div class="slide w-full shrink-0" role="group">
             <figure class="w-10/12 sm:w-auto max-w-xl mx-auto">
-                <img src="/images/blog/post2.webp" alt="Post - Dulcerias Denny" class="max-w-full aspect-auto object-cover">
+                <img src="<?= base_url('images/blog/post2.webp') ?>" alt="Post - Dulcerias Denny" class="max-w-full aspect-auto object-cover">
                 <figcaption class="mt-4 text-center text-denny-dark-500 font-black text-xl">Titulo</figcaption>
             </figure>
         </div>

@@ -44,7 +44,7 @@ module.exports = {
         }
       },
       backgroundImage: {
-        'blog-background': "url('/images/blog/blogBackground.webp')"
+        'blog-background': "url('../images/blog/blogBackground.webp')"
       },
       zIndex: {
         5: '5'

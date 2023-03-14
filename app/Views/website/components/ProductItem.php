@@ -3,7 +3,7 @@
     <picture class="max-h-44 max-w-[220px]">
         <!-- Imagen del producto -->
         <img
-            src="<?= esc($product['imgSrc']) ?>"
+            src="<?= base_url($product['imgSrc']) ?>"
             alt="Producto - <?= esc($product['name']) ?>"
             class="w-full h-full object-cover aspect-square"
         >

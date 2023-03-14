@@ -27,7 +27,7 @@
                 <article>
                     <div class="grid lg:grid-cols-2 lg:grid-rows-[100px_auto] items-center">
                         <picture class="w-1/2 mx-auto max-w-sm min-w-[200px] lg:w-1/2 lg:row-start-1 lg:row-end-3 lg:col-span-1">
-                            <img src="/images/products/product.webp" alt="Panditas - Dulcerias Denny" class="w-full object-cover">
+                            <img src="<?= base_url('images/products/product.webp') ?>" alt="Panditas - Dulcerías Denny" class="w-full object-cover">
                         </picture>
                         <div class="text-denny-dark-400 lg:mt-2 lg:w-1/2 row-start-1 row-end-2">
                             <hgroup>

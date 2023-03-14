@@ -25,7 +25,7 @@
         <section class="bg-denny-pink-300 md:bg-gradient-to-b from-denny-pink-100 to-denny-pink-200">
             <div class="py-8 md:py-0 container md:w-full flex flex-col md:flex-row lg:min-h-[750px]">
                 <picture class="order-2 md:order-1 md:w-1/2 inline-block max-w-md mx-auto md:mx-0 lg:max-w-3xl bg-denny-pink-300">
-                    <img src="<?= base_url('/images/pages/about/about.webp') ?>" alt="Paleta - Dulcerías Denny" class="w-full object-cover max-w-xl">
+                    <img src="<?= base_url('images/pages/about/about.webp') ?>" alt="Paleta - Dulcerías Denny" class="w-full object-cover max-w-xl">
                 </picture>
                 <div class="w-full md:w-1/2 md:order-2 md:-m-20 text-denny-dark-400 self-center">
                     <h1 class="text-denny-dark-500 font-black text-2xl">Distribuidores de dulces, botanas y caramelos</h1>
